@@ -1,5 +1,5 @@
 # MindSync
-Zespół projektowy: Agata Stramska, Mateusz Rosinski , Jakub Selonke
+Zespół projektowy: Agata Stramska, Mateusz Rosiński , Jakub Selonke
 ## Cel Projektu
 Stworzenie aplikacji webowej "MindSync", która będzie służyć jako kompleksowa
 platforma wspierająca użytkowników w dbaniu o zdrowie psychiczne. Aplikacja będzie
