@@ -6,4 +6,9 @@ platforma wspierająca użytkowników w dbaniu o zdrowie psychiczne. Aplikacja b
 dostarczać narzędzia do monitorowania nastroju, praktykowania mindfulness,
 uzyskiwania wsparcia poprzez chatbota oraz analizy własnych emocji w czasie.
 
+## Notka do Zepsołu
+>16.04.2025 Skonfigurowano Laravel+Tailwind+Vite  
+Aby uruchomić projekt:  
+`composer run dev`
+
 <img src="./FigmaDesign/Landing Page.png" height="600">  
