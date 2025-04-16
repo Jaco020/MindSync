@@ -8,12 +8,7 @@ return new class extends Migration
 {
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+        Schema::table('users', function (Blueprint $table) {
             $table->string('profile_picture')->nullable();
             $table->string('phone_number')->nullable();
             $table->date('birth_date')->nullable();
@@ -21,13 +16,21 @@ return new class extends Migration
             $table->text('bio')->nullable();
             $table->boolean('notifications_enabled')->default(true);
             $table->timestamp('last_login_at')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn([
+                'profile_picture',
+                'phone_number',
+                'birth_date',
+                'gender',
+                'bio',
+                'notifications_enabled',
+                'last_login_at'
+            ]);
+        });
     }
 };

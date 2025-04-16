@@ -21,6 +21,13 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'profile_picture',
+        'phone_number',
+        'birth_date',
+        'gender',
+        'bio',
+        'notifications_enabled',
+        'last_login_at'
     ];
 
     /**
@@ -43,6 +50,25 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'birth_date' => 'date',
+            'last_login_at' => 'datetime',
+            'notifications_enabled' => 'boolean',
         ];
+    }
+
+    /**
+     * Get the journal entries for the user.
+     */
+    public function journalEntries()
+    {
+        return $this->hasMany(JournalEntry::class);
+    }
+
+    /**
+     * Get the progress entries for the user.
+     */
+    public function progress()
+    {
+        return $this->hasMany(UserProgress::class);
     }
 }
