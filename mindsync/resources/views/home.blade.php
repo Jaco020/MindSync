@@ -9,8 +9,8 @@
 </head>
 <body class="">
     <nav class="py-5 w-full flex justify-between items-center px-[5%]">
-        <a href="/login" class="text-4xl font-semibold">Mind<span class="text-accent">Sync</span></a>
-        <a href="" class="border-accent-strong border text-accent-strong rounded-2xl block px-4 py-2 hover:bg-accent-strong hover:text-white ease-linear duration-300">Zaloguj się</a>
+        <a href="/" class="text-4xl font-semibold">Mind<span class="text-accent">Sync</span></a>
+        <a href="/login" class="border-accent-strong border text-accent-strong rounded-2xl block px-4 py-2 hover:bg-accent-strong hover:text-white ease-linear duration-300">Zaloguj się</a>
     </nav>
 
     <div id="baner" class="flex flex-col md:flex-row justify-between items-center px-[5%] md:max-h-[500px] md:pb-20 text-center md:text-left pt-10 md:pt-0">
