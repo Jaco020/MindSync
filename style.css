@@ -1,6 +1,7 @@
 :root{
     --accent: #15C0B6;
-    --bg-main:#008A81;
+    --accent-strong:#008A81;
+    --bg-main:#E8F3F1;
     --bg-secondary:#DEEEEB;
     --bg-tint:#ECFDFC;
     --text-header-gray:#575757;
