@@ -64,7 +64,7 @@
                 Zarejestruj się
             </button>
     
-            <p class="text-sm text-gray-600">Masz już konto? <a href="/register" class="text-teal-500 hover:underline">Zaloguj się</a></p>
+            <p class="text-sm text-gray-600">Masz już konto? <a href="/login" class="text-teal-500 hover:underline">Zaloguj się</a></p>
         </form>
     </div>
 </body>
