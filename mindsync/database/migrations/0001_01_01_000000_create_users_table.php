@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('bio')->nullable();
             $table->boolean('notifications_enabled')->default(true);
             $table->timestamp('last_login_at')->nullable();
+            $table->boolean('accepted_terms');
             $table->rememberToken();
             $table->timestamps();
         });

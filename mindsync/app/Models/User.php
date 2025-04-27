@@ -27,7 +27,8 @@ class User extends Authenticatable
         'gender',
         'bio',
         'notifications_enabled',
-        'last_login_at'
+        'last_login_at',
+        'accepted_terms',
     ];
 
     /**
@@ -53,6 +54,7 @@ class User extends Authenticatable
             'birth_date' => 'date',
             'last_login_at' => 'datetime',
             'notifications_enabled' => 'boolean',
+            'accepted_terms' => 'boolean',
         ];
     }
 
