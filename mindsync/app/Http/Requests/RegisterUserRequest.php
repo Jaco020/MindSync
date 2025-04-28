@@ -25,7 +25,7 @@
                 'name' => ['required', 'string', 'min:6', 'max:255', 'regex:/^[A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+ [A-ZĄĆĘŁŃÓŚŹŻ][a-ząćęłńóśźż]+$/'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'confirmed', 'string', 'min:6', 'max:255'],
-                'accepted_terms' => ['required', 'accepted'],
+                'accepted_terms' => ['required'],
             ];
         }
     
@@ -49,7 +49,7 @@
                 'password.min' => 'Hasło musi zawierać co najmniej :min znaków.',
                 'password.max' => 'Hasło nie może przekraczać :max znaków.',
                 'password.confirmed' => 'Hasła nie pasują do siebie.',
-                'accepted_terms.accepted' => 'Musisz zaakceptować regulamin.',
+                'accepted_terms.required' => 'Musisz zaakceptować regulamin.',
             ];
         }
 }

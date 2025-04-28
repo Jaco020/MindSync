@@ -16,28 +16,45 @@
         <img src="/images/trees.svg" alt="Dekoracja dolna lewa" class="absolute bottom-[-50%] left-[-45%] lg:bottom-[-65%] lg:left-[-60%] w-[0px] md:w-[300px] lg:w-[400px] z-0! pointer-events-none">
         <img src="/images/meditation.svg" alt="Dekoracja górna prawa" class="absolute top-[-50%] right-[-45%] lg:top-[-55%] lg:right-[-65%] w-[0px] md:w-[300px] lg:w-[400px] z-0 pointer-events-none">
         <form id="loginForm" method="POST" action="/login" class="z-50 flex flex-col items-center justify-center bg-bg-secondary opacity-85 rounded-2xl p-8 shadow-lg space-y-5" >
+            @csrf
             <h4 class="text-primary text-2xl font-semibold text-accent-strong mb-2">Witaj ponownie</h4>
             <p class="text-sm text-gray-600">Wprowadź swoje dane aby móc się zalogować</p>
+            
+            @if ($errors->any())
+                <div class="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 w-full">
+                    <ul class="list-disc pl-5">
+                        @foreach ($errors->all() as $error)
+                            <li class="text-sm">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
     
             <div class="w-full relative">
                 <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
                     <i class="fa-solid fa-envelope"></i>
                 </span>
-                <input type="text" name="email" placeholder="Adres email" required
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                <input type="text" name="email" value="{{ old('email') }}" placeholder="Adres email"
+                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('email') border-red-500 @enderror">
+                @error('email')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
     
             <div class="w-full relative">
                 <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
                     <i class="fas fa-lock"></i>
                 </span>
-                <input type="password" name="password" placeholder="Hasło" required
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                <input type="password" name="password" placeholder="Hasło"
+                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('password') border-red-500 @enderror">
+                @error('password')
+                    <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                @enderror
             </div>
     
             <div class="w-full flex justify-between items-center text-sm text-gray-600">
                 <label class="flex items-center space-x-2">
-                    <input type="checkbox" id="rememberMe" name="rememberMe" class="accent-teal-500">
+                    <input type="checkbox" id="remember" name="remember" class="accent-teal-500" {{ old('remember') ? 'checked' : '' }}>
                     <span>Zapamiętaj mnie</span>
                 </label>
                 <a href="/forgot-password" class="text-teal-500 hover:underline">Zapomniałeś hasła?</a>
