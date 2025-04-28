@@ -29,7 +29,7 @@ class AuthController extends Controller
             'accepted_terms' => $request->accepted_terms,
         ]);
 
-        Auth::login($user);
+        Auth::login($user,false);
 
         return redirect('/dashboard'); 
 
