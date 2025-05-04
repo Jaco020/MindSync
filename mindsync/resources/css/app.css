@@ -22,9 +22,10 @@
     --color-bg-footer-black:#282828;
     --color-footer-border: #535353;
     --color-text-footer-light: #D9D9D9;
-    --breakpoint-xsm: 22rem;
-    --breakpoint-2lg:80rem;
-    --breakpoint-xl:86rem;
+    --breakpoint-xsm: 22rem; /* 352px */
+    --breakpoint-sm: 31rem; /* 496px */
+    --breakpoint-2lg:80rem; /* 1280px */
+    --breakpoint-xl:86rem; /* 1376px */
 }
 
 body{
