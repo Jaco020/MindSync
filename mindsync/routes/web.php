@@ -23,4 +23,9 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/emotions_journal', [DashboardController::class, 'showEmotionsJournal'])->name('emotions_journal');
+    Route::get('/emotions_report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions_report');
+    Route::get('/mind_exercises', [DashboardController::class, 'showMindExercises'])->name('mind_exercises');
+    Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
+    Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
 });
