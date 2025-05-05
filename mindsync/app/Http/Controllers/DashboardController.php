@@ -6,13 +6,34 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+    
     public function showDashboard()
     {
-        return view('account/dashboard');
+        $user = auth()->user();
+        $journalEntriesCount = $user->journalEntries()->count();
+        $avgMood = $user->journalEntries()->avg('mood_rating');
+        $moodPercentage = $avgMood*10;
+
+        if ($avgMood !== null) {
+            $avgMood = round($avgMood, 2);
+        } else {
+            $avgMood = "Brak danych";
+        }
+
+    
+        return view('account/dashboard', [
+            'streak' => "Brak danych",
+            'journalEntriesCount' => $journalEntriesCount,
+            'avgMood' => $moodPercentage."%",
+        ]);
     }
+
     public function showEmotionsJournal()
     {
-        return view('account/emotionsJournal');
+        return view('account/emotionsJournal', [
+            'journalEntries' => auth()->user()->journalEntries()->orderBy('created_at', 'desc')->get()
+            ],
+        );
     }
     public function showEmotionsRaport()
     {

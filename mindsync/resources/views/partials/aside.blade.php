@@ -6,8 +6,8 @@
         </a>
         <a href="/settings" class="mb-6 bg-bg-tint rounded-xl p-4 flex justify-between items-center cursor-pointer hover:ring-2 hover:ring-accent transition duration-300 relative">
             <div class="ml-6">
-                <p class="text-sm font-semibold">Jakub</p>
-                <p class="text-xs text-gray-500">49348@student.umg.edu.pl</p>
+                <p class="text-sm font-semibold">{{$userName}}</p>
+                <p class="text-xs text-gray-500">{{$email}}</p>
             </div>
             <i class="fa-solid fa-chevron-right text-gray-500"></i>
             <i class="fa-solid fa-user absolute text-accent"></i>

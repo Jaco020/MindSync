@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MindSync Dashboard</title>
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
 </head>
 
@@ -15,8 +15,10 @@
     <!-- Main Content -->
     <main class="flex-1 h-screen overflow-y-auto p-2 md:p-10 space-y-6">
         <div class="bg-bg-tint p-6 md:px-15 rounded-xl relative overflow-hidden">
-            <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold text-header-gray">Miłego Poranka, Jakub 👋</h2>
-            <p class="text-gray-500 mt-2 text-sm md:text-base">Powodzenia w kontynuacji twojej 14 dniowej passy medytacji</p>
+            <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold text-header-gray">
+                <span id="timeGreeting"></span>, {{ $userName }} 👋
+            </h2>
+            <!--<p class="text-gray-500 mt-2 text-sm md:text-base">Powodzenia w kontynuacji twojej 14 dniowej passy medytacji</p>-->
             <img src="/images/leaf1.svg" class="absolute left-[-100%] md:left-[-111px] top-[-104px] z-3 pointer-events-none" alt="leaf1">   
             <img src="/images/leaf2.svg" class="absolute left-[596px] top-[-75px] pointer-events-none z-1" alt="leaf2">   
             <img src="/images/leaf3.svg" class="absolute right-[-200%] 2xl:right-0! bottom-[-110px] z-0 pointer-events-none" alt="leaf3">   
@@ -25,15 +27,15 @@
         <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 gap-6 min-h-60">
             <div class="bg-bg-tint p-6 rounded-xl text-center ">
                 <p class="text-lg md:text-xl 2xl:text-2xl text-header-gray font-semibold">Twój średni nastrój</p>
-                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">70%</div>
+                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">{{$avgMood}}</div>
             </div>
             <div class="bg-bg-tint p-6 rounded-xl text-center">
                 <p class="text-lg md:text-xl 2xl:text-2xl text-header-gray font-semibold">Streak aktywnych dni</p>
-                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">14</div>
+                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">-</div>
             </div>
             <div class="bg-bg-tint p-6 rounded-xl text-center relative overflow-y-hidden">
                 <p class="text-lg md:text-xl 2xl:text-2xl text-header-gray font-semibold">Twoje wpisy</p>
-                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">253</div>
+                <div class="text-4xl md:text-5xl 2xl:text-6xl font-bold text-accent mt-4 2xl:mt-10">{{$journalEntriesCount}}</div>
                 <img src="/images/chart-graphic.svg" class="bottom-[-100%] h-[50px] absolute 2xl:bottom-4 left-1/2 -translate-x-1/2" alt="Wykres nastroju">
             </div>
             <div class="bg-bg-tint p-6 rounded-xl text-center">
