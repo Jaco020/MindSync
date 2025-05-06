@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             'bio' => 'Pasjonat medytacji i praktyk mindfulness, pracuje jako programista.',
             'notifications_enabled' => true,
             'last_login_at' => now(),
+            'accepted_terms' => true,
         ]);
 
        
