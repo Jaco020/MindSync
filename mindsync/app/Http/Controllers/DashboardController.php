@@ -35,6 +35,18 @@ class DashboardController extends Controller
             ],
         );
     }
+    public function showEmotionsJournalAddNew()
+    {
+        return view('account/emotionsJournalForm');
+    }
+    // Templatka - edytowanie wpisu - do poprawy
+    public function showEmotionsJournalEdit($id)
+    {
+        $entry = auth()->user()->journalEntries()->findOrFail($id);
+        return view('account/emotionsJournalForm', [
+            'entry' => $entry
+        ]);
+    }
     public function showEmotionsRaport()
     {
         return view('account/emotionsReport');

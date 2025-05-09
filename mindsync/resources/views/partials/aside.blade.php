@@ -19,15 +19,15 @@
                 <i class="fa-solid fa-chart-simple mr-2"></i>Dashboard
             </a>
 
-            <a href="/emotions_journal"
+            <a href="/emotions/journal"
             class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('emotions_journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('emotions/journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                 <i class="fa-solid fa-book-open mr-2"></i>Dziennik nastroju
             </a>
 
-            <a href="/mind_exercises"
+            <a href="/mindExercises"
             class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('mind_exercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('mindExercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                 <i class="fa-solid fa-spa mr-2"></i>Ćwiczenia mindfulness
             </a>
 
@@ -37,9 +37,9 @@
                 <i class="fa-solid fa-message mr-2"></i>Chatbot wsparcia
             </a>
 
-            <a href="/emotions_report"
+            <a href="/emotions/report"
             class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('emotions_report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('emotions/report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                 <i class="fa-solid fa-face-laugh mr-2"></i>Analiza emocji
             </a>
         </nav>
@@ -74,15 +74,15 @@
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Dashboard</div>
                 </div>
                 <div class="relative group">
-                    <a href="/emotions_journal" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('emotions_journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    <a href="/emotions/journal" class="block rounded-xl p-2 cursor-pointer
+                    {{ Request::is('emotions/journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                         <i class="fa-solid fa-book-open"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Dziennik nastroju</div>
                 </div>
                 <div class="relative group">
-                    <a href="/mind_exercises" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('mind_exercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    <a href="/mindExercises" class="block rounded-xl p-2 cursor-pointer
+                    {{ Request::is('mindExercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                         <i class="fa-solid fa-spa"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Ćwiczenia mindfulness</div>
@@ -95,8 +95,8 @@
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Chatbot wsparcia</div>
                 </div>
                 <div class="relative group">
-                    <a href="/emotions_report" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('emotions_report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    <a href="/emotions/report" class="block rounded-xl p-2 cursor-pointer
+                    {{ Request::is('emotions/report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
                         <i class="fa-solid fa-face-laugh"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Analiza emocji</div>

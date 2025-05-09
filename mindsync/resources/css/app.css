@@ -34,3 +34,66 @@ body{
     color: #000;
     overflow-x: hidden;
 }
+.inputRange {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 200px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 4px;
+    outline: none;
+}
+@media screen and (max-width: 31rem) {
+    .inputRange {
+        width: 100%;
+    }
+}
+
+.inputRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--color-accent-strong);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.inputRange::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--color-accent-strong);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.inputRange::-moz-range-track {
+    background: var(--color-accent);
+    height: 8px;
+    border-radius: 4px;
+}
+
+.inputRange::-ms-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--color-accent-strong);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.inputRange::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    height: 8px;
+}
+
+.inputRange::-ms-fill-lower {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
+
+.inputRange::-ms-fill-upper {
+    background: var(--color-accent);
+    border-radius: 4px;
+}
