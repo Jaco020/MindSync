@@ -19,7 +19,7 @@
             <!-- <form action="" class="absolute top-4 right-4" method="POST">
                 <button type="submit" class="cursor-pointer hover:bg-red-800 w-4 h-4 bg-red-700 text-white rounded-full p-4 grid place-content-center transition duration-300"><i class="fa-solid fa-trash-can"></i></button>
             </form> -->
-            <h2 class="text-lg md:text-xl 2xl:text-2xl font-semibold text-header-gray">
+            <h2 class="text-lg md:text-xl 2xl:text-2xl">
                 Dodaj nowy wpis
                 <!-- Edytuj swój wpis -->
             </h2>

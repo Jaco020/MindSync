@@ -16,7 +16,7 @@
     <div id="baner" class="flex flex-col md:flex-row justify-between items-center px-[5%] md:max-h-[500px] md:pb-20 text-center md:text-left pt-10 md:pt-0">
         <div class="md:w-150">
             <p class="text-accent xl:text-lg mb-2">Zdrowie psychiczne to bogactwo</p>
-            <h1 class="mb-5 text-3xl md:text-4xl xl:text-5xl text-header-gray font-bold">Stwórz przestrzeń dla spokojniejszego umysłu</h1>
+            <h1 class="mb-5 text-3xl md:text-4xl xl:text-5xl text-header-gray">Stwórz przestrzeń dla spokojniejszego umysłu</h1>
             <p class="mb-10 xl:text-lg">Naucz się zarządzać swoimi emocjami i myślami dzięki codziennej praktyce uważności. Stwórz spokojniejszy umysł w każdej chwili dnia.</p>
             <a href="/register" class=" bg-accent border text-white rounded-2xl px-5 py-3 hover:bg-bg-main hover:text-accent ease-linear duration-300">Zarejestruj się</a>
         </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div id="showcase" class="bg-bg-secondary py-15 px-[5%]">
-        <h2 class="text-xl md:text-2xl xl:text-3xl font-semibold text-center text-header-gray mb-3">Kompleksowe wsparcie zdrowia psychicznego</h2>
+        <h2 class="text-xl md:text-2xl xl:text-3xl text-cente mb-3">Kompleksowe wsparcie zdrowia psychicznego</h2>
         <p class="xl:text-lg text-center md:w-150 mx-auto">MindSync oferuje pełen zestaw narzędzi, które pomogą Ci zadbać o swoje samopoczucie psychiczne w codziennym życiu.</p>
         <div class="cards grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 justify-items-center mx-auto xl:max-w-5xl">
             <div class="cards__item flex w-full bg-bg-tint rounded-2xl xl:p-7 p-5 gap-5 max-w-md">
@@ -62,7 +62,7 @@
         <img src="{{ asset('images/chatbotBaner.svg')}}" class="max-w-[60%] md:max-w-[40%] xl:max-w-[450px] md:mt-[150px] pb-10 md:pb-0 pointer-events-none select-none" alt="chatbot ilustracja">
         
         <div class="w-full md:w-1/2 md:pl-10 text-center md:text-left">
-            <h2 class="text-xl md:text-2xl xl:text-3xl font-bold text-header-gray mb-4">Nowoczesny Chatbot AI</h2>
+            <h2 class="text-xl md:text-2xl xl:text-3xl mb-4">Nowoczesny Chatbot AI</h2>
             <p class="xl:text-lg mb-6 max-w-[700px]" >Nasz inteligentny asystent jest dostępny dla Ciebie 24/7, oferując wsparcie, porady i techniki radzenia sobie ze stresem. Wykorzystuje zaawansowaną sztuczną inteligencję, aby dostosować się do Twoich potrzeb.</p>
             <a href="/register" class=" bg-accent border text-white rounded-2xl px-5 py-3 hover:bg-bg-main hover:text-accent ease-linear duration-300">
                 Wypróbuj teraz
@@ -71,7 +71,7 @@
     </div>
 
     <div id="join-now-baner" class="text-center bg-bg-tint py-20 px-[5%]">
-        <h2 class="text-xl md:text-2xl xl:text-3xl font-bold text-header-gray mb-4">Każda Historia Ma Swoje Znaczenie</h2>
+        <h2 class="text-xl md:text-2xl xl:text-3x mb-4">Każda Historia Ma Swoje Znaczenie</h2>
         <p class="xl:text-lg mb-6 md:w-[700px] mx-auto">Zastanawiasz się, ile razy dziennie jesteś w stanie uważności?
             Sprawdź swój poziom mindfulness i odkryj, jak możesz rozwijać tę umiejętność każdego dnia.</p>
         <a href="/register"
@@ -83,14 +83,14 @@
     <footer class="bg-bg-footer-black text-white py-14 px-[5%]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10 md:gap-20">
             <div class="md:w-1/3">
-                <h2 class="text-xl font-semibold mb-2">MindSync</h2>
+                <h2 class="text-xl mb-2">MindSync</h2>
                 <p class="text-sm text-gray-400">
                     Kompleksowa platforma wspierająca zdrowie psychiczne poprzez praktyki mindfulness, monitoring nastroju i wsparcie AI.
                 </p>
             </div>
 
             <div>
-                <h3 class="font-semibold mb-3">Funkcje</h3>
+                <h3 class="mb-3">Funkcje</h3>
                 <ul class="space-y-1 text-gray-300 text-sm">
                     <li><a href="#">Dziennik nastroju</a></li>
                     <li><a href="#">Ćwiczenia Mindfulness</a></li>

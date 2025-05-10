@@ -14,32 +14,27 @@
         </a>
         <nav class="space-y-4">
             <a href="/dashboard"
-            class="block py-3 px-4 rounded-2xl border-bg-secondary
-                    {{ Request::is('dashboard') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+            class="asideLink {{ Request::is('dashboard') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-chart-simple mr-2"></i>Dashboard
             </a>
 
             <a href="/emotions/journal"
-            class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('emotions/journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+            class="asideLink {{ Request::is('emotions/journal') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-book-open mr-2"></i>Dziennik nastroju
             </a>
 
             <a href="/mindExercises"
-            class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('mindExercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+            class="asideLink {{ Request::is('mindExercises') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-spa mr-2"></i>Ćwiczenia mindfulness
             </a>
 
             <a href="/chatbot"
-            class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('chatbot') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+            class="asideLink {{ Request::is('chatbot') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-message mr-2"></i>Chatbot wsparcia
             </a>
 
             <a href="/emotions/report"
-            class="block py-2 px-4 rounded-lg transition duration-300
-                    {{ Request::is('emotions/report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+            class="asideLink {{ Request::is('emotions/report') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-face-laugh mr-2"></i>Analiza emocji
             </a>
         </nav>
@@ -67,36 +62,36 @@
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Ustawienia</div>
                 </div>
                 <div class="relative group">
-                    <a href="/dashboard" class="block rounded-xl p-2 cursor-pointer transition duration-300
-                    {{ Request::is('dashboard') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    <a href="/dashboard" class="block rounded-xl p-2 cursor-pointer
+                    {{ Request::is('dashboard') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-chart-simple"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Dashboard</div>
                 </div>
                 <div class="relative group">
                     <a href="/emotions/journal" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('emotions/journal') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('emotions/journal') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-book-open"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Dziennik nastroju</div>
                 </div>
                 <div class="relative group">
                     <a href="/mindExercises" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('mindExercises') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('mindExercises') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-spa"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Ćwiczenia mindfulness</div>
                 </div>
                 <div class="relative group">
                     <a href="/chatbot" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('chatbot') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('chatbot') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-message"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Chatbot wsparcia</div>
                 </div>
                 <div class="relative group">
                     <a href="/emotions/report" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('emotions/report') ? 'bg-accent text-white' : 'text-gray-500 hover:ring-2 hover:ring-accent hover:text-accent' }}">
+                    {{ Request::is('emotions/report') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-face-laugh"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Analiza emocji</div>

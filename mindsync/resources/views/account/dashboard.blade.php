@@ -15,7 +15,7 @@
     <!-- Main Content -->
     <main class="flex-1 h-screen overflow-y-auto p-2 md:p-10 space-y-6">
         <div class="bg-bg-tint p-6 md:px-15 rounded-xl relative overflow-hidden">
-            <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold text-header-gray">
+            <h2 class="text-xl md:text-2xl 2xl:text-3xl ">
                 <span id="timeGreeting"></span>, {{ $userName }} 👋
             </h2>
             <!--<p class="text-gray-500 mt-2 text-sm md:text-base">Powodzenia w kontynuacji twojej 14 dniowej passy medytacji</p>-->
@@ -53,13 +53,13 @@
             </div>
             <div class="grid grid-rows-2 h-full gap-6">
                 <a href="emotions_journal" class="block bg-bg-tint pr-8 md:pr-4 p-4 rounded-xl relative cursor-pointer hover:ring-2 hover:ring-accent transition duration-300">
-                    <h3 class="text-lg md:text-xl 2xl:text-2xl text-header-gray font-semibold mb-2">Twój ostatni wpis</h3>
+                    <h3 class="text-lg md:text-xl 2xl:text-2xl mb-2">Twój ostatni wpis</h3>
                     <p class="text-xs md:text-sm text-gray-500">Lorem Ipsum dolore set amet ipsum randon, lorus deus machina...</p>
                     <p class="text-xs md:text-sm text-gray-400 absolute bottom-4">09.04.2025</p>
                     <i class="fa-solid fa-chevron-right text-accent text-2xl md:text-3xl absolute bottom-4 right-4"></i>
                 </a>
                 <a href="/mind_exercises" class="block bg-bg-tint pr-8 md:pr-4 p-4 rounded-xl relative cursor-pointer hover:ring-2 hover:ring-accent transition duration-300">
-                    <h3 class="text-lg md:text-xl 2xl:text-2xl text-header-gray font-semibold mb-2">Polecane ćwiczenie</h3>
+                    <h3 class="text-lg md:text-xl 2xl:text-2xl mb-2">Polecane ćwiczenie</h3>
                     <p class="text-xs md:text-sm text-accent-strong ">2h Spacer - Łatwy</p>
                     <p class="text-xs md:text-sm text-gray-400 mt-2">Opis ćwiczenia Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
                     <i class="fa-solid fa-chevron-right text-accent text-2xl md:text-3xl absolute bottom-4 right-4"></i>

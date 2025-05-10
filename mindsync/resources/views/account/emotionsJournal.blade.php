@@ -15,7 +15,7 @@
 
         <div class="bg-bg-tint p-6 md:px-15 rounded-xl relative overflow-hidden flex flex-col sm:flex-row sm:justify-between sm:items-center">
             <div>
-                <h2 class="text-xl md:text-2xl 2xl:text-3xl font-semibold text-header-gray">Dziennik nastroju</h2>
+                <h2 class="text-xl md:text-2xl 2xl:text-3xl">Dziennik nastroju</h2>
                 <p class="text-gray-500 mt-2 text-sm md:text-base">Monitoruj i opisuj swój nastrój</p>
             </div>
             <a href="/emotions/journal/addnew" class="mt-4 sm:mt-0 px-4 py-2 bg-accent text-white rounded-2xl hover:bg-accent-strong cursor-pointer transition duration-300">
@@ -24,7 +24,7 @@
             <img src="/images/leaf1.svg" class="absolute left-[-100%] md:left-[-111px] top-[-104px] z-3 pointer-events-none" alt="leaf1">   
         </div>
 
-        <h1 class="font-semibold text-base sm:text-lg md:text-xl text-header-gray ml-[1%] sm:ml-1">Wpisy (3)</h1>
+        <h2 class="text-base sm:text-lg md:text-x ml-[1%] sm:ml-1">Wpisy (3)</h2>
 
         <div class="space-y-4">
             <!-- Wpis 09.04.2025 -->
