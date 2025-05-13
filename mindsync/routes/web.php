@@ -23,11 +23,19 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
     Route::get('/emotions/journal', [DashboardController::class, 'showEmotionsJournal'])->name('emotions.journal');
     Route::get('/emotions/journal/addnew', [DashboardController::class, 'showEmotionsJournalAddNew'])->name('emotions.journal.addnew');
     Route::get('/emotions/journal/edit/{id}', [DashboardController::class, 'showEmotionsJournalEdit'])->name('emotions.journal.edit');
+    
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
+
     Route::get('/mindExercises', [DashboardController::class, 'showMindExercises'])->name('mindExercises');
+    Route::get('/mindExercises/list', function () {
+        return view('account/mindExercisesList');
+    })->name('mindExercises.list');
+    
     Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
     Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
+
 });

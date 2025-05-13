@@ -19,12 +19,12 @@
             </a>
 
             <a href="/emotions/journal"
-            class="asideLink {{ Request::is('emotions/journal') ? 'asideLink--active' : 'asideLink--normal' }}">
+            class="asideLink {{ Request::is('emotions/journal*') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-book-open mr-2"></i>Dziennik nastroju
             </a>
 
             <a href="/mindExercises"
-            class="asideLink {{ Request::is('mindExercises') ? 'asideLink--active' : 'asideLink--normal' }}">
+            class="asideLink {{ Request::is('mindExercises*') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="fa-solid fa-spa mr-2"></i>Ćwiczenia mindfulness
             </a>
 
