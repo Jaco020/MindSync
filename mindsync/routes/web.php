@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/mindExercises/list', function () {
         return view('account/mindExercisesList');
     })->name('mindExercises.list');
+    Route::get('/mindExercises/addnew', function () {
+        return view('account/mindExercisesForm');
+    })->name('mindExercises.form');
     
     Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
     Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');

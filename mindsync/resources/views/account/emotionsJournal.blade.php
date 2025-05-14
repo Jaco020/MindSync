@@ -50,8 +50,8 @@
                 <form action="" class="top-2 right-2 absolute flex gap-1" method="POST">
                     <!-- Templatka - do poprawy -->
                     <!-- route('emotions.journal.edit', $entry->id) }}-->
-                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
-                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
+                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
                 </form>
             </div>
 
@@ -73,8 +73,8 @@
                 <form action="" class="top-2 right-2 absolute flex gap-1" method="POST">
                     <!-- Templatka - do poprawy -->
                     <!-- route('emotions.journal.edit', $entry->id) }}-->
-                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
-                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
+                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
                 </form>
             </div>
 
@@ -99,8 +99,8 @@
                 <form action="" class="top-2 right-2 absolute flex gap-1" method="POST">
                     <!-- Templatka - do poprawy -->
                     <!-- route('emotions.journal.edit', $entry->id) }}-->
-                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
-                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                    <a href="/emotions/journal/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
+                    <button type="submit" class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
                 </form>
             </div>
         </div>

@@ -51,7 +51,7 @@
         </div>
 
         <div id="exerciseContainer" class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-dense">
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            <a href="/mindExercises/addnew" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu</p>
@@ -60,8 +60,8 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            </a>
+            <a class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu</p>
@@ -70,8 +70,8 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            </a>
+            <a href="/mindExercises/addnew" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa ćwiczenia o długiej nazwie - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugiat numquam saepe mollitia obcaecati. Delectus, eos nisi mollitia culpa et earum, tempora cumque voluptatum corrupti deleniti quod error temporibus aliquam.</p>
@@ -80,8 +80,8 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            </a>
+            <a class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu</p>
@@ -90,8 +90,8 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            </a>
+            <a href="/mindExercises/addnew" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa ćwiczenia o długiej nazwie - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia fugiat numquam saepe mollitia obcaecati. Delectus, eos nisi mollitia culpa et earum, tempora cumque voluptatum corrupti deleniti quod error temporibus aliquam.</p>
@@ -100,8 +100,8 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
-            <div class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            </a>
+            <a href="/mindExercises/addnew" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">Nazwa - Trudność</h3>
                     <p class="text-gray-600 text-sm">Informacja o ćwiczeniu</p>
@@ -110,7 +110,7 @@
                     <span>10 minut</span>
                     <i class="fa-chevron-right text-accent text-2xl md:text-3xl fa-solid"></i>
                 </div>
-            </div>
+            </a>
         </div>
 
     </main>

@@ -23,7 +23,7 @@
             <img src="/images/leaf3.svg" class="right-[-200%] 2xl:right-0! bottom-[-110px] z-0 absolute pointer-events-none" alt="leaf3">   
         </div>
 
-        <div class="flex gap-4 text-sm sm:text-base">
+        <div class="flex gap-4 text-sm md:text-base">
             <a href="/mindExercises" class="bg-accent px-4 py-2 rounded-xl text-white">Dziennik ćwiczeń</a>
             <a href="/mindExercises/list" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
         </div>
@@ -64,10 +64,10 @@
                     </p>
                     <p class="mt-2 text-gray-500 text-xs md:text-sm">09.04.2025</p>
                 </div>
-                <div class="top-2 right-2 absolute flex gap-2">
-                    <a href="#" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-2 rounded-full text-white transition cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
-                    <button class="place-content-center grid bg-red-700 hover:bg-red-800 p-2 rounded-full text-white transition cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
-                </div>
+                <form class="top-2 right-2 absolute flex gap-2">
+                    <a href="/mindExercises/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-2 rounded-full text-white scale-95 md:scale-100 transition cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
+                    <button class="place-content-center grid bg-red-700 hover:bg-red-800 p-2 rounded-full text-white scale-95 md:scale-100 transition cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
+                </form>
             </div>
             @endfor
         </div>

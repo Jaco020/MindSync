@@ -70,14 +70,14 @@
                 </div>
                 <div class="relative group">
                     <a href="/emotions/journal" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('emotions/journal') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
+                    {{ Request::is('emotions/journal*') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-book-open"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Dziennik nastroju</div>
                 </div>
                 <div class="relative group">
                     <a href="/mindExercises" class="block rounded-xl p-2 cursor-pointer
-                    {{ Request::is('mindExercises') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
+                    {{ Request::is('mindExercises*') ? 'asideLink--active' : 'asideLink--normal text-gray-500' }}">
                         <i class="fa-solid fa-spa"></i>
                     </a>
                     <div class="fixed z-50 left-[80px] top-auto whitespace-nowrap text-sm bg-gray-800 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none">Ćwiczenia mindfulness</div>
