@@ -13,8 +13,8 @@
     </nav>
 
     <div class="w-[90%] md:w-[500px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ">
-        <img src="/images/trees.svg" alt="Dekoracja dolna lewa" class="absolute bottom-[-50%] left-[-45%] lg:bottom-[-65%] lg:left-[-60%] w-[0px] md:w-[300px] lg:w-[400px] z-0! pointer-events-none">
-        <img src="/images/meditation.svg" alt="Dekoracja górna prawa" class="absolute top-[-50%] right-[-45%] lg:top-[-55%] lg:right-[-65%] w-[0px] md:w-[300px] lg:w-[400px] z-0 pointer-events-none">
+        <img src="/images/trees.svg" alt="Dekoracja dolna lewa" class="absolute bottom-[-204px] left-[-45%] lg:bottom-[-265px] lg:left-[-60%] w-[0px] md:w-[300px] lg:w-[400px] z-0! pointer-events-none">
+        <img src="/images/meditation.svg" alt="Dekoracja górna prawa" class="absolute top-[-204px] right-[-45%] lg:top-[-224px] lg:right-[-65%] w-[0px] md:w-[300px] lg:w-[400px] z-0 pointer-events-none">
         <form id="loginForm" method="POST" action="/login" class="z-50 flex flex-col items-center justify-center bg-bg-secondary opacity-85 rounded-2xl p-8 shadow-lg space-y-5" >
             @csrf
             <h4 class="text-primary text-2xl font-semibold text-accent-strong mb-2">Witaj ponownie</h4>
@@ -30,23 +30,27 @@
                 </div>
             @endif
     
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fa-solid fa-envelope"></i>
-                </span>
-                <input type="text" name="email" value="{{ old('email') }}" placeholder="Adres email"
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('email') border-red-500 @enderror">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <input type="text" name="email" value="{{ old('email') }}" placeholder="Adres email"
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('email') border-red-500 @enderror">
+                </div>
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
     
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fas fa-lock"></i>
-                </span>
-                <input type="password" name="password" placeholder="Hasło"
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('password') border-red-500 @enderror">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" name="password" placeholder="Hasło"
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('password') border-red-500 @enderror">
+                </div>
                 @error('password')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror

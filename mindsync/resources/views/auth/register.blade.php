@@ -31,44 +31,52 @@
                 </div>
             @endif
 
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fas fa-user"></i>
-                </span>
-                <input type="text" name="name" value="{{ old('name') }}" placeholder="Login" 
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('name') border-red-500 @enderror">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Login" 
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('name') border-red-500 @enderror">
+                </div>
                 @error('name')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fa-solid fa-envelope"></i>
-                </span>
-                <input type="text" name="email" value="{{ old('email') }}" placeholder="Adres email" 
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('email') border-red-500 @enderror">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fa-solid fa-envelope"></i>
+                    </span>
+                    <input type="text" name="email" value="{{ old('email') }}" placeholder="Adres email" 
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('email') border-red-500 @enderror">
+                </div>
                 @error('email')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
 
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fas fa-lock"></i>
-                </span>
-                <input type="password" name="password" placeholder="Hasło" 
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('password') border-red-500 @enderror">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" name="password" placeholder="Hasło" 
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400 @error('password') border-red-500 @enderror">
+                </div>
                 @error('password')
                     <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                 @enderror
             </div>
-            <div class="w-full relative">
-                <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
-                    <i class="fas fa-lock"></i>
-                </span>
-                <input type="password" name="password_confirmation" placeholder="Powtórz hasło" 
-                    class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+            <div class="w-full">
+                <div class="relative">
+                    <span class="absolute left-4 top-1/2 transform -translate-y-1/2 text-teal-500">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                    <input type="password" name="password_confirmation" placeholder="Powtórz hasło" 
+                        class="pl-10 pr-4 py-3 w-full rounded-xl bg-gray-100 focus:outline-none focus:ring-2 focus:ring-teal-400">
+                </div>
             </div>
     
             <div class="w-full flex justify-between items-center text-sm text-gray-600">
