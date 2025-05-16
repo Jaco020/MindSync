@@ -54,6 +54,12 @@
     .asideLink--active{
         @apply bg-accent text-white;
     }
+    .tabBtn--active{
+        @apply bg-accent text-white;
+    }
+    .tabBtn--normal:hover{
+        @apply hover:ring-1 hover:ring-accent hover:text-accent transition duration-300
+    }
 }
 /* ================ Custom input range ========================= */
 
