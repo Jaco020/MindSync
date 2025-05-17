@@ -41,4 +41,25 @@ Route::middleware('auth')->group(function () {
     Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
     Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
 
+    Route::get('/users/list', function () {
+        return view('admin/usersList');
+    })->name('admin.users.list');
+    Route::get('/users/addnew', function () {
+        return view('admin/usersForm');
+    })->name('admin.users.addnew');
+
+    Route::get('/emotions/list', function () {
+        return view('admin/emotionsList');
+    })->name('admin.emotions.list');
+    Route::get('/emotions/addnew', function () {
+        return view('admin/emotionsForm');
+    })->name('admin.emotions.addnew');
+
+    Route::get('/exercises/list', function () {
+        return view('admin/exercisesList');
+    })->name('admin.exercises.list');
+    Route::get('/exercises/addnew', function () {
+        return view('admin/exercisesForm');
+    })->name('admin.exercises.addnew');
+
 });

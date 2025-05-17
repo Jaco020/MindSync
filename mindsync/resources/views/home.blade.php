@@ -24,7 +24,7 @@
     </div>
 
     <div id="showcase" class="bg-bg-secondary py-15 px-[5%]">
-        <h2 class="text-xl md:text-2xl xl:text-3xl text-cente mb-3">Kompleksowe wsparcie zdrowia psychicznego</h2>
+        <h2 class="text-xl md:text-2xl xl:text-3xl text-center mb-3">Kompleksowe wsparcie zdrowia psychicznego</h2>
         <p class="xl:text-lg text-center md:w-150 mx-auto">MindSync oferuje pełen zestaw narzędzi, które pomogą Ci zadbać o swoje samopoczucie psychiczne w codziennym życiu.</p>
         <div class="cards grid grid-cols-1 md:grid-cols-2 gap-10 mt-10 justify-items-center mx-auto xl:max-w-5xl">
             <div class="cards__item flex w-full bg-bg-tint rounded-2xl xl:p-7 p-5 gap-5 max-w-md">
