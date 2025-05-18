@@ -1,7 +1,7 @@
-<nav class="py-5 w-full flex justify-between items-center">
-        <a href="/" class="text-4xl font-semibold">Mind<span class="text-accent">Sync</span></a>
+<nav class="flex 2md:flex-row flex-col justify-between items-center space-y-3 py-5 w-full">
+        <a href="/" class="font-semibold text-4xl">Mind<span class="text-accent">Sync</span></a>
 
-        <div class="flex items-center bg-bg-secondary rounded-xl p-3 space-x-2">
+        <div class="flex flex-wrap justify-center items-center space-x-2 bg-bg-secondary p-3 rounded-xl">
             <a href="/users/list"
             class="asideLink {{ Request::is('users/*') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="mr-2 fa-solid fa-user"></i>Użytkownicy
@@ -18,7 +18,7 @@
         
         <form action="{{ route('logout') }}" method="POST" class="">
             @csrf
-            <button type="submit" class="bg-accent text-white rounded-2xl px-5 py-3 hover:bg-accent-strong ease-linear duration-300 cursor-pointer">
+            <button type="submit" class="bg-accent px-5 py-3 rounded-2xl text-white duration-300 ease-linear hover:bg-accent-strong cursor-pointer">
                 <i class="mr-2 fas fa-sign-out-alt"></i> Wyloguj się
             </button>
         </form>
