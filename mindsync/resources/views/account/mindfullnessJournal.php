@@ -24,8 +24,8 @@
         </div>
 
         <div class="flex gap-4 text-sm md:text-base">
-            <a href="/mindExercises" class="bg-accent px-4 py-2 rounded-xl text-white">Dziennik ćwiczeń</a>
-            <a href="/mindExercises/list" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
+            <a href="/mindfullness/journal" class="bg-accent px-4 py-2 rounded-xl text-white">Dziennik ćwiczeń</a>
+            <a href="/mindfullness/exercises" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
         </div>
 
         <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">

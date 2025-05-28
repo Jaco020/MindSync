@@ -37,21 +37,21 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Proste ćwiczenie skupiające się na oddechu, idealne dla początkujących.',
                 'instructions' => "1. Usiądź wygodnie z prostymi plecami.\n2. Zamknij oczy lub skieruj wzrok w dół.\n3. Skup uwagę na swoim oddechu.\n4. Zauważaj wdech i wydech.\n5. Gdy umysł wędruje, delikatnie wróć do oddechu.",
                 'duration_minutes' => 5,
-                'difficulty' => 'easy',
+                'difficulty' => 'Łatwy',
             ],
             [
                 'title' => 'Skanowanie ciała',
                 'description' => 'Ćwiczenie pomagające budować świadomość ciała i rozluźniać napięcia.',
                 'instructions' => "1. Połóż się na plecach.\n2. Zacznij od skupienia na stopach.\n3. Powoli przenoś uwagę na kolejne części ciała - łydki, kolana, uda itd.\n4. Zauważaj wszelkie odczucia bez osądzania.\n5. Zakończ świadomością całego ciała.",
                 'duration_minutes' => 15,
-                'difficulty' => 'medium',
+                'difficulty' => 'Średni',
             ],
             [
                 'title' => 'Medytacja życzliwości',
                 'description' => 'Ćwiczenie rozwijające współczucie dla siebie i innych.',
                 'instructions' => "1. Usiądź wygodnie i zrelaksuj się.\n2. Zacznij od życzenia sobie dobra: \"Niech będę szczęśliwy i zdrowy\".\n3. Następnie skieruj życzenia do bliskiej osoby.\n4. Potem do osoby neutralnej, potem trudnej.\n5. Na końcu do wszystkich istot.",
                 'duration_minutes' => 20,
-                'difficulty' => 'hard',
+                'difficulty' => 'Trudny',
             ],
         ];
 

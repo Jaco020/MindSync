@@ -23,8 +23,8 @@
                 <i class="mr-2 fa-solid fa-book-open"></i>Dziennik nastroju
             </a>
 
-            <a href="/mindExercises"
-            class="asideLink {{ Request::is('mindExercises*') ? 'asideLink--active' : 'asideLink--normal' }}">
+            <a href="/mindfullness/exercises"
+            class="asideLink {{ Request::is('mindfullness*') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="mr-2 fa-solid fa-spa"></i>Ćwiczenia mindfulness
             </a>
 

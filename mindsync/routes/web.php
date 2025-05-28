@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MindfullnessController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,13 +31,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
 
-    Route::get('/mindExercises', [DashboardController::class, 'showMindExercises'])->name('mindExercises');
-    Route::get('/mindExercises/list', function () {
-        return view('account/mindExercisesList');
-    })->name('mindExercises.list');
-    Route::get('/mindExercises/addnew', function () {
-        return view('account/mindExercisesForm');
-    })->name('mindExercises.form');
+    Route::get('/mindfullness/exercises', [MindfullnessController::class, 'showExercises'])->name('mindfullness.exercises');
+    Route::get('/mindfullness/journal', [MindfullnessController::class, 'showJournal'])->name('mindfullness.journal');
+
     
     Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
     Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
