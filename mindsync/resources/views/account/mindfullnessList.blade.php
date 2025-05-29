@@ -24,8 +24,8 @@
         </div>
 
         <div class="flex gap-4 text-sm sm:text-base">
-            <a href="/mindfullness/journal" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Dziennik ćwiczeń</a>
-            <a href="/mindfullness/exercises" class="bg-accent px-4 py-2 rounded-xl text-white">Zbiór ćwiczeń</a>
+            <a href="/mindfulness/journal" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Dziennik ćwiczeń</a>
+            <a href="/mindfulness/exercises" class="bg-accent px-4 py-2 rounded-xl text-white">Zbiór ćwiczeń</a>
         </div>
 
         <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
@@ -53,7 +53,7 @@
 
         <div id="exerciseContainer" class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-flow-dense">
             @foreach ($exercises as $exercise) 
-            <a href="/mindExercises/addnew" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
+            <a href="/mindfulness/details/{{ $exercise->id }}" class="flex flex-col justify-between bg-bg-tint p-4 rounded-xl hover:ring-2 hover:ring-accent min-h-[200px] text-gray-800 transition duration-300 cursor-pointer exercise-card">
                 <div>
                     <h3 class="mb-1 font-semibold exercise-title">{{$exercise->title}}, {{$exercise->difficulty}}</h3>
                     <p class="text-gray-600 text-sm">{{$exercise->description}}</p>

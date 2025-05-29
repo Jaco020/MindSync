@@ -3,6 +3,8 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MindfullnessController;
+use App\Models\MindfulnessExercise;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,8 +33,10 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
 
-    Route::get('/mindfullness/exercises', [MindfullnessController::class, 'showExercises'])->name('mindfullness.exercises');
-    Route::get('/mindfullness/journal', [MindfullnessController::class, 'showJournal'])->name('mindfullness.journal');
+    Route::get('/mindfulness/exercises', [MindfullnessController::class, 'showExercises'])->name('mindfullness.exercises');
+    Route::get('/mindfulness/journal', [MindfullnessController::class, 'showJournal'])->name('mindfullness.journal');
+    Route::get('mindfulness/details/{id}', [MindfullnessController::class, 'showExerciseDetails'])->name('mindfullness.exercise.details');
+    Route::post('/mindfulness/details/{id}/addToJournal', [MindfullnessController::class, 'addToJournal'])->name('mindfullness.journal.addnew');
 
     
     Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');

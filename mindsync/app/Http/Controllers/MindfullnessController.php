@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MindfulnessFormRequest;
 use Illuminate\Http\Request;
 use App\Models\MindfulnessExercise;
+use App\Models\UserProgress;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
 
 class MindfullnessController extends Controller
 {
@@ -33,7 +37,48 @@ class MindfullnessController extends Controller
     }
 
     public function showJournal(){
-        return view('account.mindfullnessJournal');
+
+        $user = Auth::user();
+        $userProgress = UserProgress::where('user_id', $user->id)
+            ->orderBy('completed_date', 'desc')
+            ->get();
+
+        return view('account.mindfullnessJournal', [
+            'journalEntries' => $userProgress,
+        ]);
+    }
+
+    public function showExerciseDetails($id){
+        
+        $exercise = MindfulnessExercise::findOrFail($id);
+        
+        return view('account.mindfullnessForm', [
+            'exercise' => $exercise,
+        ]);
+    }
+
+    public function addToJournal(MindfulnessFormRequest $request, $id){
+        
+        try {
+            $exercise = MindfulnessExercise::findOrFail($id);
+        } catch (ModelNotFoundException $e) {
+            return redirect()->route('mindfullness.exercises')->with('error', 'Ćwiczenie nie istnieje!');
+        }
+        
+        $user = Auth::user();
+        $data = $request->validated();
+
+        $userProgress = new UserProgress([
+            'user_id'      => $user->id,
+            'exercise_id'  => $exercise->id,
+            'completed_date' => $data['exerciseDate'],
+            'rating'         => $data['moodSelect'],
+            'notes'          => $data['notes']
+        ]);
+
+        $userProgress->save();
+
+        return redirect()->route('mindfullness.journal')->with('success', 'Ćwiczenie zostało wykonane!');
     }
 
 

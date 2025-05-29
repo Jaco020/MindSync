@@ -24,8 +24,8 @@
         </div>
 
         <div class="flex gap-4 text-sm md:text-base">
-            <a href="/mindfullness/journal" class="bg-accent px-4 py-2 rounded-xl text-white">Dziennik ćwiczeń</a>
-            <a href="/mindfullness/exercises" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
+            <a href="/mindfulness/journal" class="bg-accent px-4 py-2 rounded-xl text-white">Dziennik ćwiczeń</a>
+            <a href="/mindfulness/exercises" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
         </div>
 
         <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
@@ -52,24 +52,21 @@
         </div>
 
         <div class="space-y-4">
-            @for ($i = 0; $i < 3; $i++)
-            <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
+            @foreach ($journalEntries as $journalEntry )
+                <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex items-center gap-2 mb-2 text-sm">
-                        <span class="bg-green-200 px-2 py-1 rounded-full font-semibold text-green-700 text-xs">Łatwy</span>
+                        <span class="bg-green-200 px-2 py-1 rounded-full font-semibold text-green-700 text-xs">Ćwiczenie: {{$journalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
                         <img src="/images/emotion3.png" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
-                        Dzisiaj był naprawdę dobry dzień. Spotkałem się z przyjaciółmi na kawie i rozmawialiśmy o nowych projektach. Czuję się pełen energii i gotowy na nowe wyzwania.
+                        {{ $journalEntry->notes }}
                     </p>
-                    <p class="mt-2 text-gray-500 text-xs md:text-sm">09.04.2025</p>
+                    <p class="mt-2 text-gray-500 text-xs md:text-sm">{{$journalEntry->completed_date}}</p>
                 </div>
-                <form class="top-2 right-2 absolute flex gap-2">
-                    <a href="/mindExercises/addnew" class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-2 rounded-full text-white scale-95 md:scale-100 transition cursor-pointer"><i class="fa-pen-to-square fa-solid"></i></a>
-                    <button class="place-content-center grid bg-red-700 hover:bg-red-800 p-2 rounded-full text-white scale-95 md:scale-100 transition cursor-pointer"><i class="fa-solid fa-trash-can"></i></button>
-                </form>
             </div>
-            @endfor
+            @endforeach
+            
         </div>
     </main>
 </body>
