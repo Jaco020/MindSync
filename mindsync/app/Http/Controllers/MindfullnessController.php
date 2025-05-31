@@ -36,12 +36,17 @@ class MindfullnessController extends Controller
         ]);
     }
 
-    public function showJournal(){
+    public function showJournal(Request $request){
 
         $user = Auth::user();
-        $userProgress = UserProgress::where('user_id', $user->id)
-            ->orderBy('completed_date', 'desc')
-            ->get();
+        $userProgress = UserProgress::with('exercise') // Dodaj eager loading
+            ->where('user_id', $user->id);
+
+        if ($request->filled('date')) {
+            $userProgress->where('completed_date', $request->input('date'));
+        }
+
+        $userProgress = $userProgress->orderBy('completed_date', 'desc')->get();
 
         return view('account.mindfullnessJournal', [
             'journalEntries' => $userProgress,

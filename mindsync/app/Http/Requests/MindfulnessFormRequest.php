@@ -27,4 +27,19 @@ class MindfulnessFormRequest extends FormRequest
             'notes'        => 'required|string|max:1000',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'exerciseDate.required' => 'Data wykonania ćwiczenia jest wymagana.',
+            'exerciseDate.date'     => 'Data wykonania ćwiczenia musi być poprawną datą.',
+            'moodSelect.required'   => 'Wybór poziomu nastroju jest wymagany.',
+            'moodSelect.integer'    => 'Wybór poziomu nastroju musi być liczbą całkowitą.',
+            'moodSelect.min'        => 'Wybór poziomu nastroju musi być co najmniej 1.',
+            'moodSelect.max'        => 'Wybór poziomu nastroju nie może przekraczać 5.',
+            'notes.required'        => 'Przemyślenia są wymagane.',
+            'notes.string'          => 'Przemyślenia muszą być tekstem.',
+            'notes.max'             => 'Przemyślenia nie mogą przekraczać 1000 znaków.',
+        ];
+    }
 }

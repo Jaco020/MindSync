@@ -1,3 +1,13 @@
+@php
+    $emotions = [
+        1 => 'emotion1.png', // Okropnie
+        2 => 'emotion2.png', // Źle  
+        3 => 'emotion3.png', // Średnio
+        4 => 'emotion4.png', // Dobrze
+        5 => 'emotion5.png'  // Wspaniale
+    ];
+@endphp
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -28,41 +38,27 @@
             <a href="/mindfulness/exercises" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
         </div>
 
-        <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
-            <div class="relative">
-                <input type="text" placeholder="Wyszukaj" class="bg-bg-main px-4 py-2 pr-10 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base" />
-                <span class="top-1/2 right-4 absolute text-gray-500 -translate-y-1/2 transform">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
+        <form method="GET" action="{{ route('mindfullness.journal') }}" class="flex gap-4">
+            @csrf
+            <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
+                <label for="date" class="px-4 py-2 rounded-xl text-gray-700">Wybierz datę:</label>
+                <input type="date" name="date" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base" />
+                <button type="submit" class="px-4 py-2 rounded-xl bg-accent text-white">Filtruj</button>
             </div>
-            <select class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base">
-                <option>1. Łatwy</option>
-                <option>2. Średni</option>
-                <option>3. Trudny</option>
-            </select>
-            <select class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base">
-                <option>Poniżej 1 minuty</option>
-                <option>Poniżej 5 minut</option>
-                <option>10+ minut</option>
-                <option>30+ minut</option>
-                <option>1h+ godzin</option>
-                <option>2h+ godzin</option>
-            </select>
-            <input type="date" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base" />
-        </div>
+        </form>
 
         <div class="space-y-4">
             @foreach ($journalEntries as $journalEntry )
                 <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex items-center gap-2 mb-2 text-sm">
-                        <span class="bg-green-200 px-2 py-1 rounded-full font-semibold text-green-700 text-xs">Ćwiczenie: {{$journalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
-                        <img src="/images/emotion3.png" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
+                        <span class="bg-accent px-2 py-1 rounded-full font-semibold text-white text-xs">Ćwiczenie: {{$journalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
+                        <img src="/images/{{ $emotions[$journalEntry->rating]}}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
                         {{ $journalEntry->notes }}
                     </p>
-                    <p class="mt-2 text-gray-500 text-xs md:text-sm">{{$journalEntry->completed_date}}</p>
+                    <p class="mt-2 text-gray-500 text-xs md:text-sm">{{ $journalEntry->completed_date->format('d.m.Y')}} </p>
                 </div>
             </div>
             @endforeach

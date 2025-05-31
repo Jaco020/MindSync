@@ -24,18 +24,32 @@
                     {{ $exercise->instructions }}
                 </p>
             </div>
-
+             
+            @if ($errors->any())
+                <div class="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 w-full">
+                    <ul class="list-disc pl-5">
+                        @foreach ($errors->all() as $error)
+                            <li class="text-sm">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            
             <form method="POST" action="{{ route('mindfullness.journal.addnew', $exercise->id) }}" class="space-y-6">
                 @csrf
+                
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="exerciseDate" class="font-medium text-gray-700">Data wykonania ćwiczenia:</label>
-                    <input type="date" id="exerciseDate" name="exerciseDate" value="2025-04-09" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500">
+                    <input type="date" id="exerciseDate" name="exerciseDate" value="2025-04-09" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500
+                    @error('exerciseDate') border-2 border-red-500 !text-red-600 @enderror">
                 </div>
 
+                <!-- TODO: Podświetlenie na czerwono, gdy błąd walidacji -->
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="moodSelect" class="font-medium text-gray-700">Jak się czujesz po ćwiczeniu:</label>
                     <div class="relative flex items-center gap-2">
-                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-700">
+                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-700
+                        @error('moodSelect') border-2 border-red-500 !text-red-600 @enderror">
                             <option value="1">Okropnie</option>
                             <option value="2">Źle</option>
                             <option value="3">Średnio</option>
@@ -46,8 +60,9 @@
                 </div>
 
                 <div class="flex flex-col">
-                    <label for="notes" class="mb-2 font-medium text-gray-700">Notatka:</label>
-                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40 text-gray-600 resize-none"></textarea>
+                    <label for="notes" class="mb-2 font-medium text-gray-700">Przemyślenia:</label>
+                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40 resize-none text-gray-600
+                    @error('notes') border-2 border-red-500 !text-red-600 @enderror"></textarea>
                 </div>
 
                 <div class="flex flex-wrap justify-center md:justify-end gap-4">
