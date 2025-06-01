@@ -16,31 +16,53 @@ class ChatbotController extends Controller
         $this->apiToken = env('CHATBOT_API_TOKEN');
     }
 
-    public function showChatbot()
+    public function showChatbot(Request $request)
     {
-        return view('account/chatbot');
+        $userId = auth()->id();
+        $sessionKey = "chatbot_conversation_user_{$userId}";
+        $conversation = $request->session()->get($sessionKey, []);
+    
+        return view('account.chatbot', compact('conversation'));
     }
 
     public function sendMessage(Request $request): JsonResponse
     {
-
         $request->validate([
             'message' => 'required|string|max:1000'
-        ]); // Przenieść walidację do FormRequest albo nie
-
+        ]);
+    
         $userMessage = $request->input('message');
+        $userId = auth()->id();
         
         try {
-            $response = $this->callChatAPI($userMessage);
+            // Pobierz historię z sesji dla konkretnego użytkownika
+            $sessionKey = "chatbot_conversation_user_{$userId}";
+            $conversation = $request->session()->get($sessionKey, []);
+            
+            // Dodaj nową wiadomość użytkownika do historii
+            $conversation[] = [
+                'role' => 'user',
+                'content' => $userMessage
+            ];
+            
+            $response = $this->callChatAPI($conversation);
+            
+            // Dodaj odpowiedź bota do historii
+            $conversation[] = [
+                'role' => 'assistant',
+                'content' => $response
+            ];
+            
+            // Zapisz zaktualizowaną historię w sesji
+            $request->session()->put($sessionKey, $conversation);
             
             return response()->json([
                 'success' => true,
                 'response' => $response,
                 'user_message' => $userMessage
             ]);
-
+    
         } catch (\Exception $e) {
-            
             return response()->json([
                 'success' => false,
                 'response' => 'Przepraszam, wystąpił błąd techniczny. Spróbuj ponownie za chwilę.',
@@ -48,20 +70,21 @@ class ChatbotController extends Controller
             ], 500);
         }
     }
-
-    private function callChatAPI(string $userMessage): string
+    
+    private function callChatAPI(array $conversation): string
     {
+        // Zawsze zaczynaj od wiadomości systemowej
         $messages = [
             [
                 'role' => 'system',
                 'content' => 'Jesteś pomocnym asystentem wsparcia psychicznego dla aplikacji MindSync. Odpowiadaj po polsku w empatyczny i wspierający sposób. Pomagaj użytkownikom z problemami związanymi ze zdrowiem psychicznym, stresem, lękiem i mindfulness. Bądź ciepły, zrozumiały i profesjonalny. Jeśli użytkownik potrzebuje poważnej pomocy medycznej, delikatnie zasugeruj skontaktowanie się z profesjonalistą.'
-            ],
-            [
-                'role' => 'user',
-                'content' => $userMessage
             ]
         ];
-
+    
+        // Dodaj historię konwersacji (ograniczoną do ostatnich 20 wiadomości)
+        $recentConversation = array_slice($conversation, -20);
+        $messages = array_merge($messages, $recentConversation);
+    
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $this->apiToken,
             'Content-Type' => 'application/json'
@@ -72,17 +95,30 @@ class ChatbotController extends Controller
             'max_tokens' => 1024,
             'temperature' => 0.7
         ]);
-
+    
         if (!$response->successful()) {
             throw new \Exception('API request failed: ' . $response->body());
         }
-
+    
         $data = $response->json();
         
         if (!isset($data['choices'][0]['message']['content'])) {
             throw new \Exception('Invalid API response format');
         }
-
+    
         return $data['choices'][0]['message']['content'];
+    }
+    
+    // Dodaj metodę do pobierania historii
+    public function getConversationHistory(Request $request): JsonResponse
+    {
+        $userId = auth()->id();
+        $sessionKey = "chatbot_conversation_user_{$userId}";
+        $conversation = $request->session()->get($sessionKey, []);
+        
+        return response()->json([
+            'success' => true,
+            'conversation' => $conversation
+        ]);
     }
 }
