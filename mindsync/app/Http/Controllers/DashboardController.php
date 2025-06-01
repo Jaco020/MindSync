@@ -51,10 +51,7 @@ class DashboardController extends Controller
     {
         return view('account/emotionsReport');
     }
-    public function showChatbot()
-    {
-        return view('account/chatbot');
-    }
+
     public function showSettings()
     {
         return view('account/settings');

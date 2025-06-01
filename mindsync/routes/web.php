@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MindfullnessController;
 use App\Models\MindfulnessExercise;
@@ -39,7 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/mindfulness/details/{id}/addToJournal', [MindfullnessController::class, 'addToJournal'])->name('mindfullness.journal.addnew');
 
     
-    Route::get('/chatbot', [DashboardController::class, 'showChatbot'])->name('chatbot');
+    Route::get('/chatbot', [ChatbotController::class, 'showChatbot'])->name('chatbot.show');
+    Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.sendMessage');
+    
     Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
 
     Route::get('/users/list', function () {
