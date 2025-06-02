@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\EmotionsJournalController;
 use App\Http\Controllers\MindfullnessController;
 use App\Models\MindfulnessExercise;
 use Illuminate\Support\Facades\Auth;
@@ -28,9 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    Route::get('/emotions/journal', [DashboardController::class, 'showEmotionsJournal'])->name('emotions.journal');
-    Route::get('/emotions/journal/addnew', [DashboardController::class, 'showEmotionsJournalAddNew'])->name('emotions.journal.addnew');
-    Route::get('/emotions/journal/edit/{id}', [DashboardController::class, 'showEmotionsJournalEdit'])->name('emotions.journal.edit');
+    Route::get('/emotions/journal', [EmotionsJournalController::class, 'showEmotionsJournal'])->name('emotions.journal');
+    Route::get('/emotions/journal/addnew', [EmotionsJournalController::class, 'showEmotionsJournalForm'])->name('emotions.journal.form');
+    Route::get('/emotions/journal/edit/{id}', [EmotionsJournalController::class, 'showEmotionsJournalEdit'])->name('emotions.journal.edit');
+    Route::post('/emotions/journal/delete/{id}', [EmotionsJournalController::class, 'deleteEmotionJournalEntry'])->name('emotions.journal.delete');
+
     
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
 

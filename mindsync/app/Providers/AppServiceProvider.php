@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Auth;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -22,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('account.*', function ($view) {
-            $user = auth()->user();
+            $user = Auth::user();
             if ($user) {
                 $view->with('userName', $user->name);
                 $view->with('email', $user->email);

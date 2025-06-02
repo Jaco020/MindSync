@@ -32,11 +32,6 @@
             class="asideLink {{ Request::is('chatbot') ? 'asideLink--active' : 'asideLink--normal' }}">
                 <i class="mr-2 fa-solid fa-message"></i>Chatbot wsparcia
             </a>
-
-            <a href="/emotions/report"
-            class="asideLink {{ Request::is('emotions/report') ? 'asideLink--active' : 'asideLink--normal' }}">
-                <i class="mr-2 fa-solid fa-face-laugh"></i>Analiza emocji
-            </a>
         </nav>
 
         <form action="{{ route('logout') }}" method="POST" class="bottom-10 absolute">
