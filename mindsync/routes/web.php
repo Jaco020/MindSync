@@ -30,9 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
     Route::get('/emotions/journal', [EmotionsJournalController::class, 'showEmotionsJournal'])->name('emotions.journal');
-    Route::get('/emotions/journal/addnew', [EmotionsJournalController::class, 'showEmotionsJournalForm'])->name('emotions.journal.form');
-    Route::get('/emotions/journal/edit/{id}', [EmotionsJournalController::class, 'showEmotionsJournalEdit'])->name('emotions.journal.edit');
+    Route::get('/emotions/journal/addnew', [EmotionsJournalController::class, 'showEmotionsJournalFormAdd'])->name('emotions.journal.form.add');
+    Route::get('/emotions/journal/edit/{id}', [EmotionsJournalController::class, 'showEmotionsJournalFormEdit'])->name('emotions.journal.form.edit');
     Route::post('/emotions/journal/delete/{id}', [EmotionsJournalController::class, 'deleteEmotionJournalEntry'])->name('emotions.journal.delete');
+    Route::post('/emotions/journal/add', [EmotionsJournalController::class, 'addEmotionJournalEntry'])->name('emotions.journal.add');
+    Route::post('/emotions/journal/edit/{id}', [EmotionsJournalController::class, 'updateEmotionJournalEntry'])->name('emotions.journal.update');
+
+
 
     
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');

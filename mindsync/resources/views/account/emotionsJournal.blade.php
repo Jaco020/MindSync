@@ -1,3 +1,14 @@
+@php
+    $emotions = [
+        1 => 'emotion1.png', // Okropnie
+        2 => 'emotion2.png', // Źle  
+        3 => 'emotion3.png', // Średnio
+        4 => 'emotion4.png', // Dobrze
+        5 => 'emotion5.png'  // Wspaniale
+    ];
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="pl">
 
@@ -36,7 +47,7 @@
                 <h2 class="text-xl md:text-2xl 2xl:text-3xl">Dziennik nastroju</h2>
                 <p class="mt-2 text-gray-500 text-sm md:text-base">Monitoruj i opisuj swój nastrój</p>
             </div>
-            <a href="/emotions/journal/addnew" class="bg-accent mt-4 sm:mt-0 px-4 py-2 rounded-2xl text-white transition duration-300 hover:bg-accent-strong cursor-pointer">
+            <a href="{{ route('emotions.journal.form.add') }}" class="bg-accent mt-4 sm:mt-0 px-4 py-2 rounded-2xl text-white transition duration-300 hover:bg-accent-strong cursor-pointer">
                     Nowy wpis
             </a>
             <img src="/images/leaf1.svg" class="top-[-104px] left-[-100%] md:left-[-111px] z-3 absolute pointer-events-none" alt="leaf1">   
@@ -49,16 +60,16 @@
                 <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex sm:flex-row flex-col sm:items-center gap-2 mb-2 text-gray-500">
-                        <!--<div>
+                        <div>
                             <i class="mr-1 text-accent text-lg md:text-xl fa-solid fa-calendar-days"></i>
-                            <span class="font-semibold text-xs md:text-sm"></span>
-                        </div>-->
+                            <span class="font-semibold text-xs md:text-sm">{{$journalEntry->date}}</span>
+                        </div>
                         <!--<div class="flex flex-wrap gap-2">
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Praca</span>
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Relacje</span>
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Zdrowie</span>
                         </div>-->
-                        <img src="/images/emotion4.png" alt="Zadowolony" class="w-6 md:w-7 pointer-events-none">
+                        <img src="/images/{{ $emotions[$journalEntry->mood_rating] }}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
                         {{ $journalEntry->content }}
@@ -67,7 +78,7 @@
                 
                 <div class="top-2 right-2 absolute flex gap-1">
                     <!-- Przycisk edycji poza formularzem -->
-                    <a href="{{ route('emotions.journal.edit', $journalEntry->id) }}" 
+                    <a href="{{ route('emotions.journal.update', $journalEntry->id) }}" 
                     class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer">
                         <i class="fa-pen-to-square fa-solid"></i>
                     </a>

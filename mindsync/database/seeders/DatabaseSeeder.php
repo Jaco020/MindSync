@@ -64,20 +64,23 @@ class DatabaseSeeder extends Seeder
             [
                 'user_id' => $user->id,
                 'content' => 'Dzisiaj czuję się dobrze. Poranek zacząłem od medytacji, co dało mi energię na cały dzień.',
-                'mood_rating' => 8,
+                'mood_rating' => 5,
                 'mood_type' => 'happy',
+                'date' => Carbon::now()->subDays(1)
             ],
             [
                 'user_id' => $user->id,
                 'content' => 'Trudny dzień w pracy. Dużo stresu, ale udało mi się znaleźć chwilę na głęboki oddech.',
                 'mood_rating' => 4,
                 'mood_type' => 'anxious',
+                'date' => Carbon::now()->subDays(2)
             ],
             [
                 'user_id' => $user->id,
                 'content' => 'Spotkałem się z przyjaciółmi. Czuję się zrelaksowany i zadowolony.',
-                'mood_rating' => 9,
+                'mood_rating' => 2,
                 'mood_type' => 'calm',
+                'date' => Carbon::now()->subDays(3)
             ],
         ];
 

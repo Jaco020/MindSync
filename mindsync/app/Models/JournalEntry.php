@@ -13,7 +13,8 @@ class JournalEntry extends Model
         'user_id',
         'content',
         'mood_rating',
-        'mood_type'
+        'mood_type',
+        'date'
     ];
 
     public function user()

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmotionsJournalFormRequest;
 use App\Models\JournalEntry;
 use Illuminate\Support\Facades\Auth;
-use App\Policies\JournalEntryPolicy;
+use Illuminate\Http\Request;
 
 class EmotionsJournalController extends Controller
 {
@@ -20,12 +21,12 @@ class EmotionsJournalController extends Controller
         ]);
     }
 
-    public function showEmotionsJournalForm()
+    public function showEmotionsJournalFormAdd()
     {
         return view('account/emotionsJournalForm');
     }
 
-    public function showEmotionsJournalEdit($id)
+    public function showEmotionsJournalFormEdit($id)
     {
         $journalEntry = JournalEntry::findOrFail($id);
 
@@ -33,9 +34,7 @@ class EmotionsJournalController extends Controller
             abort(403, 'Nie masz uprawnień do edycji tego wpisu.');
         }
 
-        return view('account/emotionsJournalForm', [
-            'journalEntry' => $journalEntry
-        ]);
+        return view('account/emotionsJournalForm', compact('journalEntry'));
     }
 
     public function deleteEmotionJournalEntry($id) {
@@ -50,4 +49,37 @@ class EmotionsJournalController extends Controller
 
         return redirect()->route('emotions.journal')->with('success', 'Wpis został usunięty.');
     }
+
+    
+    public function addEmotionJournalEntry(EmotionsJournalFormRequest $request)
+    {   
+        JournalEntry::create([
+            'user_id' => Auth::id(),
+            'content' => $request->input('journalText'),
+            'date' => $request->input('dateIn'),
+            'mood_rating' => $request->input('moodIn'),
+            'mood_type' => null,
+        ]);
+
+        return redirect()->route('emotions.journal')->with('success', 'Wpis został dodany.');
+    }
+
+    public function updateEmotionJournalEntry(EmotionsJournalFormRequest $request, $id)
+    {
+        $journalEntry = JournalEntry::findOrFail($id);
+    
+        if ($journalEntry->user_id !== Auth::id()) {
+            abort(403);
+        }
+    
+        $journalEntry->update([
+            'content' => $request->input('journalText'),
+            'date' => $request->input('dateIn'),
+            'mood_rating' => $request->input('moodIn'),
+            'mood_type' => null,
+        ]);
+    
+        return redirect()->route('emotions.journal')->with('success', 'Wpis został zaktualizowany.');
+    }
+    
 }
