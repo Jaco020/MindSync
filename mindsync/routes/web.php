@@ -36,17 +36,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/emotions/journal/add', [EmotionsJournalController::class, 'addEmotionJournalEntry'])->name('emotions.journal.add');
     Route::post('/emotions/journal/edit/{id}', [EmotionsJournalController::class, 'updateEmotionJournalEntry'])->name('emotions.journal.update');
 
-
-
-    
-    Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
-
     Route::get('/mindfulness/exercises', [MindfulnessController::class, 'showExercises'])->name('mindfulness.exercises');
     Route::get('/mindfulness/journal', [MindfulnessController::class, 'showJournal'])->name('mindfulness.journal');
     Route::get('mindfulness/details/{id}', [MindfulnessController::class, 'showExerciseDetails'])->name('mindfulness.exercise.details');
     Route::post('/mindfulness/details/{id}/addToJournal', [MindfulnessController::class, 'addToJournal'])->name('mindfulness.journal.addnew');
 
-    
     Route::get('/chatbot', [ChatbotController::class, 'showChatbot'])->name('chatbot.show');
     Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.sendMessage');
     
