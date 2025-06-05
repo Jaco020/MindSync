@@ -5,7 +5,7 @@ use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmotionsJournalController;
 use App\Http\Controllers\MindfullnessController;
-use App\Models\MindfulnessExercise;
+use App\Http\Controllers\MindfulnessController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -41,10 +41,10 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/emotions/report', [DashboardController::class, 'showEmotionsRaport'])->name('emotions.report');
 
-    Route::get('/mindfulness/exercises', [MindfullnessController::class, 'showExercises'])->name('mindfullness.exercises');
-    Route::get('/mindfulness/journal', [MindfullnessController::class, 'showJournal'])->name('mindfullness.journal');
-    Route::get('mindfulness/details/{id}', [MindfullnessController::class, 'showExerciseDetails'])->name('mindfullness.exercise.details');
-    Route::post('/mindfulness/details/{id}/addToJournal', [MindfullnessController::class, 'addToJournal'])->name('mindfullness.journal.addnew');
+    Route::get('/mindfulness/exercises', [MindfulnessController::class, 'showExercises'])->name('mindfulness.exercises');
+    Route::get('/mindfulness/journal', [MindfulnessController::class, 'showJournal'])->name('mindfulness.journal');
+    Route::get('mindfulness/details/{id}', [MindfulnessController::class, 'showExerciseDetails'])->name('mindfulness.exercise.details');
+    Route::post('/mindfulness/details/{id}/addToJournal', [MindfulnessController::class, 'addToJournal'])->name('mindfulness.journal.addnew');
 
     
     Route::get('/chatbot', [ChatbotController::class, 'showChatbot'])->name('chatbot.show');

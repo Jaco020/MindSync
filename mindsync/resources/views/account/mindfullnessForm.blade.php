@@ -35,16 +35,15 @@
                 </div>
             @endif
             
-            <form method="POST" action="{{ route('mindfullness.journal.addnew', $exercise->id) }}" class="space-y-6">
+            <form method="POST" action="{{ route('mindfulness.journal.addnew', $exercise->id) }}" class="space-y-6">
                 @csrf
                 
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="exerciseDate" class="font-medium text-gray-700">Data wykonania ćwiczenia:</label>
-                    <input type="date" id="exerciseDate" name="exerciseDate" value="2025-04-09" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500
+                    <input type="date" id="exerciseDate" name="exerciseDate" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500
                     @error('exerciseDate') border-2 border-red-500 !text-red-600 @enderror">
                 </div>
 
-                <!-- TODO: Podświetlenie na czerwono, gdy błąd walidacji -->
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="moodSelect" class="font-medium text-gray-700">Jak się czujesz po ćwiczeniu:</label>
                     <div class="relative flex items-center gap-2">

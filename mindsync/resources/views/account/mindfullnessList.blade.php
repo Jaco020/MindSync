@@ -30,7 +30,7 @@
 
         <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
             <div class="relative">
-               <form method="GET" action="{{ route('mindfullness.exercises') }}" class="flex gap-4">
+               <form method="GET" action="{{ route('mindfulness.exercises') }}" class="flex gap-4">
                     <select name="difficulty" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full sm:w-auto text-gray-500 text-sm md:text-base">
                         <option value="">Wszystkie poziomy</option>
                         <option value="Łatwy" {{ request('difficulty') == 'Łatwy' ? 'selected' : '' }}>Łatwy</option>

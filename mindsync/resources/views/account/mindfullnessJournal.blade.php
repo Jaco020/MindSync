@@ -38,7 +38,7 @@
             <a href="/mindfulness/exercises" class="px-4 py-2 rounded-xl hover:ring-1 hover:ring-accent hover:text-accent transition duration-300">Zbiór ćwiczeń</a>
         </div>
 
-        <form method="GET" action="{{ route('mindfullness.journal') }}" class="flex gap-4">
+        <form method="GET" action="{{ route('mindfulness.journal') }}" class="flex gap-4">
             @csrf
             <div class="flex flex-wrap gap-4 bg-bg-tint p-4 rounded-xl">
                 <label for="date" class="px-4 py-2 rounded-xl text-gray-700">Wybierz datę:</label>
@@ -48,17 +48,17 @@
         </form>
 
         <div class="space-y-4">
-            @foreach ($journalEntries as $journalEntry )
+            @foreach ($mindfulnessJournalEntries as $mindfulnessJournalEntry )
                 <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex items-center gap-2 mb-2 text-sm">
-                        <span class="bg-accent px-2 py-1 rounded-full font-semibold text-white text-xs">Ćwiczenie: {{$journalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
-                        <img src="/images/{{ $emotions[$journalEntry->rating]}}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
+                        <span class="bg-accent px-2 py-1 rounded-full font-semibold text-white text-xs">Ćwiczenie: {{ $mindfulnessJournalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
+                        <img src="/images/{{ $emotions[$mindfulnessJournalEntry->rating]}}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
-                        {{ $journalEntry->notes }}
+                        {{  $mindfulnessJournalEntry->notes }}
                     </p>
-                    <p class="mt-2 text-gray-500 text-xs md:text-sm">{{ $journalEntry->completed_date->format('d.m.Y')}} </p>
+                    <p class="mt-2 text-gray-500 text-xs md:text-sm">{{  $mindfulnessJournalEntry->completed_date->format('d.m.Y')}} </p>
                 </div>
             </div>
             @endforeach

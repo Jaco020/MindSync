@@ -12,12 +12,12 @@ class EmotionsJournalController extends Controller
     public function showEmotionsJournal()
     {
         $user = Auth::user();
-        $journalEntries = JournalEntry::where('user_id', $user->id)
+        $emotionsJournalEntries = JournalEntry::where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->get();
 
         return view('account/emotionsJournal', [
-            'journalEntries' => $journalEntries
+            'emotionsJournalEntries' => $emotionsJournalEntries
         ]);
     }
 
@@ -28,24 +28,24 @@ class EmotionsJournalController extends Controller
 
     public function showEmotionsJournalFormEdit($id)
     {
-        $journalEntry = JournalEntry::findOrFail($id);
+        $emotionsJournalEntry = JournalEntry::findOrFail($id);
 
-        if ($journalEntry->user_id !== Auth::id()) {
+        if ($emotionsJournalEntry->user_id !== Auth::id()) {
             abort(403, 'Nie masz uprawnień do edycji tego wpisu.');
         }
 
-        return view('account/emotionsJournalForm', compact('journalEntry'));
+        return view('account/emotionsJournalForm', compact('emotionsJournalEntry'));
     }
 
     public function deleteEmotionJournalEntry($id) {
         
-        $journalEntry = JournalEntry::findOrFail($id);
+        $emotionsJournalEntry = JournalEntry::findOrFail($id);
 
-        if ($journalEntry->user_id !== Auth::id()) {
+        if ($emotionsJournalEntry->user_id !== Auth::id()) {
             abort(403, 'Nie masz uprawnień do usunięcia tego wpisu.');
         }
         
-        $journalEntry->delete();
+        $emotionsJournalEntry->delete();
 
         return redirect()->route('emotions.journal')->with('success', 'Wpis został usunięty.');
     }
@@ -66,13 +66,13 @@ class EmotionsJournalController extends Controller
 
     public function updateEmotionJournalEntry(EmotionsJournalFormRequest $request, $id)
     {
-        $journalEntry = JournalEntry::findOrFail($id);
+        $emotionsJournalEntry = JournalEntry::findOrFail($id);
     
-        if ($journalEntry->user_id !== Auth::id()) {
+        if ($emotionsJournalEntry->user_id !== Auth::id()) {
             abort(403);
         }
     
-        $journalEntry->update([
+        $emotionsJournalEntry->update([
             'content' => $request->input('journalText'),
             'date' => $request->input('dateIn'),
             'mood_rating' => $request->input('moodIn'),

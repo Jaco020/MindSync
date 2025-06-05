@@ -16,10 +16,10 @@
         <!-- New entry container -->
         <div class="flex flex-col justify-center bg-bg-tint p-4 md:p-8 rounded-xl relative">
             <h2 class="text-lg md:text-xl 2xl:text-2xl">
-                {{ isset($journalEntry) ? 'Edytuj wpis' : 'Dodaj nowy wpis' }}
+                {{ isset($emotionsJournalEntry) ? 'Edytuj wpis' : 'Dodaj nowy wpis' }}
             </h2>
             
-            <form action="{{ isset($journalEntry) ? route('emotions.journal.update', $journalEntry->id) : route('emotions.journal.add') }}" method="POST" class="mt-6">
+            <form action="{{ isset($emotionsJournalEntry) ? route('emotions.journal.update', $emotionsJournalEntry->id) : route('emotions.journal.add') }}" method="POST" class="mt-6">
                 @csrf
                 
                 <!-- Wyświetlanie błędów walidacji - tylko na górze -->
@@ -37,7 +37,7 @@
                     <div class="flex items-center">
                         <label for="dateIn" class="text-gray-600 mr-4">Data: </label>
                         <input type="date" name="dateIn" id="dateIn" 
-                               value="{{ old('dateIn', isset($journalEntry) ? $journalEntry->date : '') }}"
+                               value="{{ old('dateIn', isset($emotionsJournalEntry) ? $emotionsJournalEntry->date : '') }}"
                                class="px-3 py-2 rounded-xl bg-bg-main focus:outline-none focus:ring-2 focus:ring-accent text-gray-500 @error('dateIn') border-2 border-red-500 @enderror">
                     </div>
                     
@@ -49,7 +49,7 @@
                                 <span id="moodDescription" class="text-gray-700 font-medium">Średni (3)</span>
                             </div>
                             <input type="range" name="moodIn" id="moodIn" min="1" max="5" 
-                                   value="{{ old('moodIn', isset($journalEntry) ? $journalEntry->mood_rating : 3) }}" 
+                                   value="{{ old('moodIn', isset($emotionsJournalEntry) ? $emotionsJournalEntry->mood_rating : 3) }}" 
                                    class="inputRange @error('moodIn') border-2 border-red-500 @enderror">
                         </div>
                     </div>
@@ -57,13 +57,13 @@
                     <div class="flex flex-col">
                         <label for="journalText" class="text-gray-600 mb-4">Treść wpisu: </label>
                         <textarea placeholder="Twój opis dnia" name="journalText" id="journalText" 
-                                  class="p-3 rounded-xl bg-bg-main focus:outline-none focus:ring-2 focus:ring-accent resize-none h-80 text-gray-500 @error('journalText') border-2 border-red-500 @enderror">{{ old('journalText', isset($journalEntry) ? $journalEntry->content : '') }}</textarea>
+                                  class="p-3 rounded-xl bg-bg-main focus:outline-none focus:ring-2 focus:ring-accent resize-none h-80 text-gray-500 @error('journalText') border-2 border-red-500 @enderror">{{ old('journalText', isset($emotionsJournalEntry) ? $emotionsJournalEntry->content : '') }}</textarea>
                     </div>
                     
                     <div class="flex justify-end items-center gap-4 text-center">
                         <a href="/emotions/journal" class="cursor-pointer border-accent border text-accent rounded-2xl block md:px-8 py-2 hover:border-accent-strong hover:text-accent-strong transition duration-300 w-[100px] md:w-auto">Anuluj</a>
                         <button type="submit" class="md:px-8 py-2 bg-accent text-white rounded-2xl w-[100px] md:w-auto hover:bg-accent-strong cursor-pointer transition duration-300">
-                            {{ isset($journalEntry) ? 'Aktualizuj' : 'Zapisz' }}
+                            {{ isset($emotionsJournalEntry) ? 'Aktualizuj' : 'Zapisz' }}
                         </button>
                     </div>
                 </div>

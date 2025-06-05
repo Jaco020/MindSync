@@ -53,38 +53,38 @@
             <img src="/images/leaf1.svg" class="top-[-104px] left-[-100%] md:left-[-111px] z-3 absolute pointer-events-none" alt="leaf1">   
         </div>
 
-        <h2 class="ml-[1%] sm:ml-1 md:text-x text-base sm:text-lg">Wpisy ({{ count($journalEntries) }})</h2>
+        <h2 class="ml-[1%] sm:ml-1 md:text-x text-base sm:text-lg">Wpisy ({{ count($emotionsJournalEntries) }})</h2>
 
         <div class="space-y-4">
-            @foreach ($journalEntries as $journalEntry)
+            @foreach ($emotionsJournalEntries as $emotionJournalEntry)
                 <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex sm:flex-row flex-col sm:items-center gap-2 mb-2 text-gray-500">
                         <div>
                             <i class="mr-1 text-accent text-lg md:text-xl fa-solid fa-calendar-days"></i>
-                            <span class="font-semibold text-xs md:text-sm">{{$journalEntry->date}}</span>
+                            <span class="font-semibold text-xs md:text-sm">{{$emotionJournalEntry->date}}</span>
                         </div>
                         <!--<div class="flex flex-wrap gap-2">
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Praca</span>
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Relacje</span>
                             <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Zdrowie</span>
                         </div>-->
-                        <img src="/images/{{ $emotions[$journalEntry->mood_rating] }}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
+                        <img src="/images/{{ $emotions[$emotionJournalEntry->mood_rating] }}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
-                        {{ $journalEntry->content }}
+                        {{ $emotionJournalEntry->content }}
                     </p>
                 </div>
                 
                 <div class="top-2 right-2 absolute flex gap-1">
                     <!-- Przycisk edycji poza formularzem -->
-                    <a href="{{ route('emotions.journal.update', $journalEntry->id) }}" 
+                    <a href="{{ route('emotions.journal.update', $emotionJournalEntry->id) }}" 
                     class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer">
                         <i class="fa-pen-to-square fa-solid"></i>
                     </a>
     
                     <!-- Formularz tylko dla usuwania -->
-                    <form action="{{ route('emotions.journal.delete', $journalEntry->id) }}" method="POST" class="inline">
+                    <form action="{{ route('emotions.journal.delete', $emotionJournalEntry->id) }}" method="POST" class="inline">
                     @csrf
                     <button type="submit" 
                     class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"
