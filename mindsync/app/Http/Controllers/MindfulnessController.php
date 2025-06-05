@@ -31,7 +31,7 @@ class MindfulnessController extends Controller
 
         $exercises = $exercises->get();
 
-        return view('account.mindfullnessList', [
+        return view('account.mindfulnessList', [
             'exercises' => $exercises,
         ]);
     }
@@ -48,7 +48,7 @@ class MindfulnessController extends Controller
 
         $userProgress = $userProgress->orderBy('completed_date', 'desc')->get();
 
-        return view('account.mindfullnessJournal', [
+        return view('account.mindfulnessJournal', [
             'mindfulnessJournalEntries' => $userProgress,
         ]);
     }
@@ -57,7 +57,7 @@ class MindfulnessController extends Controller
         
         $exercise = MindfulnessExercise::findOrFail($id);
         
-        return view('account.mindfullnessForm', [
+        return view('account.mindfulnessForm', [
             'exercise' => $exercise,
         ]);
     }
