@@ -16,6 +16,35 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Trasy dla wszystkich użytkowników
+Route::get('/info/dashboard', function () {
+        return view('static.dashboardInfo');
+})->name('dashboard');
+
+Route::get('/info/journal', function () {
+    return view('static.journalInfo');
+})->name('journal');
+
+Route::get('/info/exercises', function () {
+    return view('static.exercisesInfo');
+})->name('exccercises');
+
+Route::get('/info/chat', function () {
+    return view('static.chatInfo');
+})->name('chat');
+
+Route::get('/info/faq', function () {
+    return view('static.faqInfo');
+})->name('faq');
+
+Route::get('/info/contact', function () {
+    return view('static.contact');
+})->name('contact');
+Route::get('/info/policy', function () {
+    return view('static.policy');
+})->name('info.policy');
+
+
 // Trasy dla użytkowników niezalogowanych
 Route::middleware('guest')->group(function () {
     Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
