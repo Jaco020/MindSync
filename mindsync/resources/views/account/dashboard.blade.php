@@ -39,7 +39,9 @@
             <div class="bg-bg-tint p-6 rounded-xl text-center">
                 <p class="font-semibold text-header-gray text-lg md:text-xl">Twój średni nastrój</p>
                 <div class="mt-4 2xl:mt-10 flex flex-col items-center justify-center gap-2">
-                    <img src="/images/{{ $emotions[$avgMood]}}" alt="Emoji" class="w-10 md:w-12 pointer-events-none" />
+                    @if($avgMoodIndex)
+                        <img src="/images/{{ $emotions[$avgMoodIndex] }}" alt="Emoji" class="w-10 md:w-12 pointer-events-none" />
+                    @endif
                     <span class="font-bold text-accent text-4xl md:text-5xl">({{$avgMood}})</span>
                 </div>
             </div>
@@ -64,12 +66,20 @@
                 </div>
             </div>
             <div class="gap-6 grid grid-rows-2 h-full">
-                <a href="/emotions/journal" class="block relative bg-bg-tint p-4 pr-8 md:pr-4 rounded-xl hover:ring-2 hover:ring-accent transition duration-300 cursor-pointer">
-                    <h3 class="mb-2 text-lg md:text-xl">Twój ostatni wpis</h3>
-                    <p class="text-gray-500 text-xs md:text-sm">{{$lastEmotionEntry->content}}</p>
-                    <p class="bottom-4 absolute text-gray-400 text-xs md:text-sm">{{$lastEmotionEntry->date}}</p>
-                    <i class="fa-chevron-right right-4 bottom-4 absolute text-accent text-2xl md:text-3xl fa-solid"></i>
-                </a>
+                @if($lastEmotionEntry)
+                    <a href="/emotions/journal" class="block relative bg-bg-tint p-4 pr-8 md:pr-4 rounded-xl hover:ring-2 hover:ring-accent transition duration-300 cursor-pointer">
+                        <h3 class="mb-2 text-lg md:text-xl">Twój ostatni wpis</h3>
+                        <p class="text-gray-500 text-xs md:text-sm">{{ $lastEmotionEntry->content }}</p>
+                        <p class="bottom-4 absolute text-gray-400 text-xs md:text-sm">{{ $lastEmotionEntry->formatted_date }}</p>
+                        <i class="fa-chevron-right right-4 bottom-4 absolute text-accent text-2xl md:text-3xl fa-solid"></i>
+                    </a>
+                @else
+                    <div class="block relative bg-bg-tint p-4 pr-8 md:pr-4 rounded-xl">
+                        <h3 class="mb-2 text-lg md:text-xl">Twój ostatni wpis</h3>
+                        <p class="text-gray-500 text-xs md:text-sm">Brak wpisów w dzienniku</p>
+                        <a href="/emotions/journal" class="bottom-4 absolute text-accent text-xs md:text-sm hover:underline">Dodaj pierwszy wpis</a>
+                    </div>
+                @endif
                 <a href="/mindfulness/details/{{$recommendedExercise->id}}" class="block relative bg-bg-tint p-4 pr-8 md:pr-4 rounded-xl hover:ring-2 hover:ring-accent transition duration-300 cursor-pointer">
                     <h3 class="mb-2 text-lg md:text-xl">Polecane ćwiczenie</h3>
                     <p class="text-xs md:text-sm text-accent-strong">{{$recommendedExercise->title}}</p>

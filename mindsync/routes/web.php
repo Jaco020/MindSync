@@ -4,8 +4,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EmotionsJournalController;
-use App\Http\Controllers\MindfullnessController;
 use App\Http\Controllers\MindfulnessController;
+use App\Http\Controllers\UserSettingsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +14,7 @@ Route::get('/', function () {
         return redirect('/dashboard');
     }
     return view('home');
-});
+})->name('index');
 
 // Trasy dla użytkowników niezalogowanych
 Route::middleware('guest')->group(function () {
@@ -44,7 +44,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/chatbot', [ChatbotController::class, 'showChatbot'])->name('chatbot.show');
     Route::post('/chatbot/send', [ChatbotController::class, 'sendMessage'])->name('chatbot.sendMessage');
     
-    Route::get('/settings', [DashboardController::class, 'showSettings'])->name('settings');
+    Route::get('/userSettings', [UserSettingsController::class, 'showUserSettings'])->name('user.settings');
+    Route::post('/userSettings/deleteUser', [UserSettingsController::class, 'deleteUser'])->name('user.delete');
+
 
     Route::get('/users/list', function () {
         return view('admin/usersList');

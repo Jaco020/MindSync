@@ -24,7 +24,7 @@
                 <div class="space-y-3">
                     <div>
                         <label class="text-gray-600 text-sm">Nazwa</label>
-                        <input type="text" value="Jakub Selonke" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full text-gray-500">
+                        <input type="text" value="" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent w-full text-gray-500">
                     </div>
                     <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                         <div>
@@ -68,27 +68,15 @@
                 </div>
 
                 <div class="bg-bg-tint p-6 rounded-md">
-                    <h2 class="mb-4 pb-2 border-b font-semibold text-lg">Ustawienia prywatności</h2>
-                    <div class="space-y-3">
-                        <div class="flex items-center space-x-2">
-                            <input type="checkbox" id="data" class="w-4 h-4 accent-accent">
-                            <label for="data" class="text-gray-700 text-sm">Zgoda na przetwarzanie danych</label>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <input type="checkbox" id="notifications" class="w-4 h-4 accent-accent">
-                            <label for="notifications" class="text-gray-700 text-sm">Powiadomienia</label>
-                        </div>
-                        <div class="flex justify-end">
-                            <button class="bg-accent px-6 py-2 rounded-xl text-white transition duration-300 hover:bg-accent-strong cursor-pointer">Zapisz</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-bg-tint p-6 rounded-md">
                     <h2 class="mb-2 font-semibold text-red-600 text-lg">Usuwanie konta</h2>
                     <p class="mb-4 text-black text-sm">Tej akcji nie można cofnąć! Wszystkie twoje dane zostaną usunięte.</p>
                     <div class="flex justify-end">
-                        <button class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-xl text-white transition duration-300 cursor-pointer">Usuń konto</button>
+                        <form method="POST" action="{{ route('user.delete') }}" onsubmit="return confirm('Czy na pewno chcesz usunąć swoje konto? Ta operacja jest nieodwracalna!')">
+                            @csrf
+                            <button type="submit" class="bg-red-600 hover:bg-red-700 px-6 py-2 rounded-xl text-white transition duration-300 cursor-pointer">
+                                Usuń konto
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@
         <a href="/" class="block mb-10 font-semibold text-4xl text-center">
             Mind<span class="text-accent">Sync</span>
         </a>
-        <a href="/settings" class=" mb-6 bg-bg-tint rounded-xl p-4 flex justify-between items-center cursor-pointer hover:ring-2 hover:ring-accent transition duration-300 relative">
+        <a href="/userSettings" class=" mb-6 bg-bg-tint rounded-xl p-4 flex justify-between items-center cursor-pointer hover:ring-2 hover:ring-accent transition duration-300 relative">
             <div class="ml-6">
                 <p class="font-semibold text-sm">{{$userName}}</p>
                 <p class="text-gray-500 text-xs">{{$email}}</p>

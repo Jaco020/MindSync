@@ -13,21 +13,23 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $journalEntriesCount = $user->journalEntries()->count();
-        $avgMood = round($user->journalEntries()->avg('mood_rating'), 1);
+        $avgMoodRaw = $user->journalEntries()->avg('mood_rating');
         $recommendedExercise = MindfulnessExercise::inRandomOrder()->first();
         $lastEmotionEntry = $user->journalEntries()
             ->orderBy('date', 'desc')
             ->first();
 
-        if ($avgMood !== null) {
-            $avgMood = round($avgMood, 2);
+        if ($avgMoodRaw !== null) {
+            $avgMood = round($avgMoodRaw, 1);
+            $avgMoodIndex = (int) round($avgMoodRaw);
         } else {
             $avgMood = "Brak danych";
+            $avgMoodIndex = null;
         }
 
         if ($lastEmotionEntry)
-        {
-        $lastEmotionEntry->formatted_date = Carbon::parse($lastEmotionEntry->date)->format('d.m.Y');
+        {   
+            $lastEmotionEntry->formatted_date = Carbon::parse($lastEmotionEntry->date)->format('d.m.Y');
         }
 
         $moodDataGrouped = $user->journalEntries()
@@ -43,29 +45,13 @@ class DashboardController extends Controller
                 ];
             });
 
-    
         return view('account/dashboard', [
-            'streak' => "Brak danych",
             'journalEntriesCount' => $journalEntriesCount,
             'avgMood' => $avgMood,
+            'avgMoodIndex' => $avgMoodIndex,
             'moodData' => $moodDataGrouped,
             'recommendedExercise' => $recommendedExercise,
             'lastEmotionEntry' => $lastEmotionEntry,
         ]);
     }
-
-    public function showEmotionsJournal()
-    {
-        return view('account/emotionsJournal', [
-            'journalEntries' => Auth::user()->journalEntries()->orderBy('created_at', 'desc')->get()
-            ],
-        );
-    }
-
-    public function showSettings()
-    {
-        return view('account/settings');
-    }
-
-
 }
