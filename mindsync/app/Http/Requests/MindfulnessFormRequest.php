@@ -22,7 +22,7 @@ class MindfulnessFormRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'exerciseDate' => 'required|date',
+            'exerciseDate' => 'required|date|before_or_equal:today',
             'moodSelect'   => 'required|integer|min:1|max:5',
             'notes'        => 'required|string|max:1000',
         ];
@@ -33,6 +33,7 @@ class MindfulnessFormRequest extends FormRequest
         return [
             'exerciseDate.required' => 'Data wykonania ćwiczenia jest wymagana.',
             'exerciseDate.date'     => 'Data wykonania ćwiczenia musi być poprawną datą.',
+            'exerciseDate.before_or_equal' => 'Data nie może być w przyszłości.',
             'moodSelect.required'   => 'Wybór poziomu nastroju jest wymagany.',
             'moodSelect.integer'    => 'Wybór poziomu nastroju musi być liczbą całkowitą.',
             'moodSelect.min'        => 'Wybór poziomu nastroju musi być co najmniej 1.',
