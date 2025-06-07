@@ -8,6 +8,17 @@
     <script src="https://kit.fontawesome.com/086b12d3c8.js" crossorigin="anonymous"></script>
 </head>
 <body class="">
+
+        @if(session('status'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <span class="block sm:inline">{{ session('status') }}</span>
+                <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" onclick="this.parentElement.style.display='none';">
+                    <i class="fas fa-times"></i>
+                </span>
+            </div>
+        @endif
+
+
     <nav class="py-5 w-full flex justify-between items-center px-[5%]">
         <a href="/" class="text-4xl font-semibold">Mind<span class="text-accent">Sync</span></a>
         <a href="/login" class="border-accent-strong border text-accent-strong rounded-2xl block px-4 py-2 hover:bg-accent-strong hover:text-white ease-linear duration-300">Zaloguj się</a>

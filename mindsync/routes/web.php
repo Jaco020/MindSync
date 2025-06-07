@@ -46,6 +46,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('/userSettings', [UserSettingsController::class, 'showUserSettings'])->name('user.settings');
     Route::post('/userSettings/deleteUser', [UserSettingsController::class, 'deleteUser'])->name('user.delete');
+    Route::post('/userSettings/updatePassword', [UserSettingsController::class, 'updatePassword'])->name('user.updatePassword');
+    Route::post('/userSettings/updateUserDetails', [UserSettingsController::class, 'updateUserDetails'])->name('user.updateUserDetails');
+
 
 
     Route::get('/users/list', function () {

@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Requests\EmotionsJournalFormRequest;
 use App\Models\JournalEntry;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 class EmotionsJournalController extends Controller
 {
