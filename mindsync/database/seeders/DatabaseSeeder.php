@@ -15,21 +15,43 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-        
-        $user = User::create([
-            'name' => 'Jan Kowalski',
-            'email' => 'jan@example.com',
-            'password' => Hash::make('password123'),
-            'profile_picture' => 'default-avatar.png',
-            'phone_number' => '+48123456789',
-            'birth_date' => '1990-05-15',
-            'gender' => 'male',
-            'bio' => 'Pasjonat medytacji i praktyk mindfulness, pracuje jako programista.',
-            'notifications_enabled' => true,
-            'last_login_at' => now(),
-            'accepted_terms' => true,
-        ]);
+        $users = [
+            [
+                'name' => 'Jan Kowalski',
+                'email' => 'jan@example.com',
+                'password' => Hash::make('password123'),
+                'profile_picture' => 'default-avatar.png',
+                'phone_number' => '+48123456789',
+                'birth_date' => '1990-05-15',
+                'gender' => 'male',
+                'bio' => 'Pasjonat medytacji i praktyk mindfulness, pracuje jako programista.',
+                'notifications_enabled' => true,
+                'last_login_at' => now(),
+                'accepted_terms' => true,
+                'role' => 'user'
+            ],
+            [
+                'name' => 'ADMIN',
+                'email' => 'admin@example.com',
+                'password' => Hash::make('admin123'),
+                'profile_picture' => 'default-avatar.png',
+                'phone_number' => '+48123456789',
+                'birth_date' => '1990-05-15',
+                'gender' => 'male',
+                'bio' => 'admin',
+                'notifications_enabled' => true,
+                'last_login_at' => now(),
+                'accepted_terms' => true,
+                'role' => 'admin'
+            ]
+        ];
 
+        $createdUsers = [];
+        foreach ($users as $userData) {
+            $createdUsers[] = User::create($userData);
+        }
+        
+        $firstUser = $createdUsers[0];
        
         $exercises = [
             [
@@ -59,24 +81,23 @@ class DatabaseSeeder extends Seeder
             MindfulnessExercise::create($exercise);
         }
 
-        
         $journalEntries = [
             [
-                'user_id' => $user->id,
+                'user_id' => $firstUser->id,
                 'content' => 'Dzisiaj czuję się dobrze. Poranek zacząłem od medytacji, co dało mi energię na cały dzień.',
                 'mood_rating' => 5,
                 'mood_type' => 'happy',
                 'date' => Carbon::now()->subDays(1)
             ],
             [
-                'user_id' => $user->id,
+                'user_id' => $firstUser->id,
                 'content' => 'Trudny dzień w pracy. Dużo stresu, ale udało mi się znaleźć chwilę na głęboki oddech.',
                 'mood_rating' => 4,
                 'mood_type' => 'anxious',
                 'date' => Carbon::now()->subDays(2)
             ],
             [
-                'user_id' => $user->id,
+                'user_id' => $firstUser->id,
                 'content' => 'Spotkałem się z przyjaciółmi. Czuję się zrelaksowany i zadowolony.',
                 'mood_rating' => 2,
                 'mood_type' => 'calm',
@@ -88,7 +109,6 @@ class DatabaseSeeder extends Seeder
             JournalEntry::create($entry);
         }
 
-       
         $emotions = [
             ['name' => 'Radość', 'category' => 'primary', 'description' => 'Uczucie szczęścia i zadowolenia'],
             ['name' => 'Smutek', 'category' => 'primary', 'description' => 'Uczucie przygnębienia i żalu'],
@@ -102,9 +122,8 @@ class DatabaseSeeder extends Seeder
             Emotion::create($emotion);
         }
 
-        
         UserProgress::create([
-            'user_id' => $user->id,
+            'user_id' => $firstUser->id,
             'exercise_id' => 1,
             'completed_date' => now()->subDays(2),
             'rating' => 4,

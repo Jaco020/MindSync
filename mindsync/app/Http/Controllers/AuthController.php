@@ -31,7 +31,7 @@ class AuthController extends Controller
 
         Auth::login($user,false);
 
-        return redirect('/dashboard'); 
+        return redirect('/'); 
 
     }
 
@@ -42,7 +42,7 @@ class AuthController extends Controller
         ], $request->boolean('remember'))) {
             $request->session()->regenerate();
             
-            return redirect('/dashboard');
+            return redirect('/');
         }
     
         return back()->withErrors([

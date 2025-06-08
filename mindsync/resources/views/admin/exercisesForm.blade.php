@@ -13,50 +13,77 @@
     @include('admin.adminNav')
 
     <main class="flex flex-col bg-gray-50 mx-auto mt-10 p-10 rounded-xl w-full max-w-4xl">
-        <h2 class="mb-6 text-xl text-center">Dodaj Ćwiczenie</h2>
+        <h2 class="mb-6 text-xl text-center">
+            {{ isset($exercise) ? 'Edytuj Ćwiczenie' : 'Dodaj Ćwiczenie' }}
+        </h2>
 
-        <form method="POST" class="space-y-4">
+        @if ($errors->any())
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        @if (session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        <form method="POST" action="{{ isset($exercise) ? route('admin.exercises.update', $exercise->id) : route('admin.exercises.store') }}" class="space-y-4">
             @csrf
+            @if(isset($exercise))
+                @method('PUT')
+            @endif
 
             <div>
-                <label for="titleExe" class="block mb-1 font-medium text-sm">Tytuł</label>
-                <input type="text" id="titleExe" name="titleExe" class="adminInput">
+                <label for="title" class="block mb-1 font-medium text-sm">Tytuł *</label>
+                <input type="text" id="title" name="title" 
+                       value="{{ old('title', isset($exercise) ? $exercise->title : '') }}" 
+                       class="adminInput" required>
             </div>
 
             <div class="gap-4 grid grid-cols-1 md:grid-cols-2">
                 <div>
-                    <label for="timeExe" class="block mb-1 font-medium text-sm">Czas (min)</label>
-                    <input type="text" id="timeExe" name="timeExe" class="adminInput">
+                    <label for="duration_minutes" class="block mb-1 font-medium text-sm">Czas (min) *</label>
+                    <input type="number" id="duration_minutes" name="duration_minutes" 
+                           value="{{ old('duration_minutes', isset($exercise) ? $exercise->duration_minutes : '') }}" 
+                           min="1" max="120" class="adminInput" required>
                 </div>
                 <div>
-                    <label for="difficulty" class="block mb-1 text-sm">Trudność</label>
-                    <select id="difficulty" name="difficulty" class="adminInput">
-                        <option value="easy">Łatwy</option>
-                        <option value="medium">Średni</option>
-                        <option value="hard">Trudny</option>
+                    <label for="difficulty" class="block mb-1 text-sm">Trudność *</label>
+                    <select id="difficulty" name="difficulty" class="adminInput" required>
+                        <option value="Łatwy" {{ old('difficulty', isset($exercise) ? $exercise->difficulty : '') == 'Łatwy' ? 'selected' : '' }}>Łatwy</option>
+                        <option value="Średni" {{ old('difficulty', isset($exercise) ? $exercise->difficulty : '') == 'Średni' ? 'selected' : '' }}>Średni</option>
+                        <option value="Trudny" {{ old('difficulty', isset($exercise) ? $exercise->difficulty : '') == 'Trudny' ? 'selected' : '' }}>Trudny</option>
                     </select>
                 </div>
             </div>
 
             <div>
-                <label for="descExe" class="block mb-1 text-sm">Opis</label>
-                <textarea id="descExe" name="descExe" class="adminInput" rows="4"></textarea>
-            </div>
-            <div>
-                <label for="instructions" class="block mb-1 text-sm">Instrukcje</label>
-                <textarea id="instructions" name="instructions" class="adminInput" rows="4"></textarea>
+                <label for="description" class="block mb-1 text-sm">Opis *</label>
+                <textarea id="description" name="description" 
+                          class="adminInput" rows="4" required 
+                          placeholder="Krótki opis ćwiczenia...">{{ old('description', isset($exercise) ? $exercise->description : '') }}</textarea>
             </div>
 
+            <div>
+                <label for="instructions" class="block mb-1 text-sm">Instrukcje *</label>
+                <textarea id="instructions" name="instructions" 
+                          class="adminInput" rows="6" required 
+                          placeholder="Szczegółowe instrukcje wykonania ćwiczenia...">{{ old('instructions', isset($exercise) ? $exercise->instructions : '') }}</textarea>
+            </div>
 
             <div class="flex justify-end space-x-4 mt-6">
-                <a href="{{ route('admin.users.list') }}" class="block py-2 border border-accent hover:border-accent-strong rounded-2xl w-[100px] text-accent text-center transition duration-300 hover:text-accent-strong cursor-pointer">Anuluj</a>
-                <button type="submit" class="bg-accent py-2 rounded-2xl w-[100px] text-white transition duration-300 hover:bg-accent-strong cursor-pointer">
-                    Dodaj
+                <a href="{{ route('admin.exercises.list') }}" class="block py-2 border border-accent hover:border-accent-strong rounded-2xl w-[100px] text-accent text-center transition duration-300 hover:text-accent-strong cursor-pointer">Anuluj</a>
+                <button type="submit" class="bg-accent py-2 rounded-2xl w-[120px] text-white transition duration-300 hover:bg-accent-strong cursor-pointer">
+                    {{ isset($exercise) ? 'Aktualizuj' : 'Dodaj' }}
                 </button>
             </div>
         </form>
     </main>
-
-    
 </body>
 </html>

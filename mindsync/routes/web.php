@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ChatbotController;
 use App\Http\Controllers\DashboardController;
@@ -11,10 +12,43 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
+        // Sprawdź czy użytkownik to admin
+        if (Auth::user()->role === 'admin') {
+            return redirect('/admin');
+        }
         return redirect('/dashboard');
     }
     return view('home');
 })->name('index');
+
+// Trasy dla wszystkich użytkowników
+Route::get('/info/dashboard', function () {
+        return view('static.dashboardInfo');
+})->name('dashboard');
+
+Route::get('/info/journal', function () {
+    return view('static.journalInfo');
+})->name('journal');
+
+Route::get('/info/exercises', function () {
+    return view('static.exercisesInfo');
+})->name('exccercises');
+
+Route::get('/info/chat', function () {
+    return view('static.chatInfo');
+})->name('chat');
+
+Route::get('/info/faq', function () {
+    return view('static.faqInfo');
+})->name('faq');
+
+Route::get('/info/contact', function () {
+    return view('static.contact');
+})->name('contact');
+
+Route::get('/info/policy', function () {
+    return view('static.policy');
+})->name('info.policy');
 
 // Trasy dla użytkowników niezalogowanych
 Route::middleware('guest')->group(function () {
@@ -48,28 +82,26 @@ Route::middleware('auth')->group(function () {
     Route::post('/userSettings/deleteUser', [UserSettingsController::class, 'deleteUser'])->name('user.delete');
     Route::post('/userSettings/updatePassword', [UserSettingsController::class, 'updatePassword'])->name('user.updatePassword');
     Route::post('/userSettings/updateUserDetails', [UserSettingsController::class, 'updateUserDetails'])->name('user.updateUserDetails');
+});
 
-
-
-    Route::get('/users/list', function () {
-        return view('admin/usersList');
-    })->name('admin.users.list');
-    Route::get('/users/addnew', function () {
-        return view('admin/usersForm');
-    })->name('admin.users.addnew');
-
-    Route::get('/emotions/list', function () {
-        return view('admin/emotionsList');
-    })->name('admin.emotions.list');
-    Route::get('/emotions/addnew', function () {
-        return view('admin/emotionsForm');
-    })->name('admin.emotions.addnew');
-
-    Route::get('/exercises/list', function () {
-        return view('admin/exercisesList');
-    })->name('admin.exercises.list');
-    Route::get('/exercises/addnew', function () {
-        return view('admin/exercisesForm');
-    })->name('admin.exercises.addnew');
-
+// Trasy dla administratorów
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Główna trasa admin - przekierowanie do listy użytkowników
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    
+    // Zarządzanie użytkownikami
+    Route::get('/admin/users/list', [AdminController::class, 'showUsersList'])->name('admin.users.list');
+    Route::get('/admin/users/addnew', [AdminController::class, 'showUsersForm'])->name('admin.users.addnew');
+    Route::post('/admin/users/store', [AdminController::class, 'storeUser'])->name('admin.users.store');
+    Route::get('/admin/users/edit/{id}', [AdminController::class, 'showUsersEditForm'])->name('admin.users.edit');
+    Route::put('/admin/users/update/{id}', [AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::delete('/admin/users/delete/{id}', [AdminController::class, 'deleteUser'])->name('admin.users.delete');
+    
+    // Zarządzanie ćwiczeniami
+    Route::get('/admin/exercises/list', [AdminController::class, 'showExercisesList'])->name('admin.exercises.list');
+    Route::get('/admin/exercises/addnew', [AdminController::class, 'showExercisesForm'])->name('admin.exercises.addnew');
+    Route::post('/admin/exercises/store', [AdminController::class, 'storeExercise'])->name('admin.exercises.store');
+    Route::get('/admin/exercises/edit/{id}', [AdminController::class, 'showExercisesEditForm'])->name('admin.exercises.edit');
+    Route::put('/admin/exercises/update/{id}', [AdminController::class, 'updateExercise'])->name('admin.exercises.update');
+    Route::delete('/admin/exercises/delete/{id}', [AdminController::class, 'deleteExercise'])->name('admin.exercises.delete');
 });

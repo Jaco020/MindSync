@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('notifications_enabled')->default(true);
             $table->timestamp('last_login_at')->nullable();
             $table->boolean('accepted_terms');
+            $table->string('role')->default('user');
             $table->rememberToken();
             $table->timestamps();
         });

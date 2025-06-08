@@ -29,6 +29,7 @@ class User extends Authenticatable
         'notifications_enabled',
         'last_login_at',
         'accepted_terms',
+        'role'
     ];
 
     /**
