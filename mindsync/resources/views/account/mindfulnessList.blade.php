@@ -46,7 +46,7 @@
                         <option value="60" {{ request('duration') == '60' ? 'selected' : '' }}>1h+ godzin</option>
                         <option value="120" {{ request('duration') == '120' ? 'selected' : '' }}>2h+ godzin</option>
                     </select>
-                    <button type="submit" class="px-4 py-2 rounded-xl bg-accent text-white">Filtruj</button>
+                    <button type="submit" class="bg-accent px-4 py-2 rounded-xl text-white">Filtruj</button>
                 </form> 
             </div>     
         </div>

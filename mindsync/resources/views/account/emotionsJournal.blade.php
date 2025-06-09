@@ -25,18 +25,18 @@
     <main class="flex-1 space-y-6 p-2 md:p-10 h-screen overflow-y-auto">
 
         @if(session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <div class="relative bg-green-100 px-4 py-3 border border-green-400 rounded text-green-700" role="alert">
                 <span class="block sm:inline">{{ session('success') }}</span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" onclick="this.parentElement.style.display='none';">
+                <span class="top-0 right-0 bottom-0 absolute px-4 py-3 cursor-pointer" onclick="this.parentElement.style.display='none';">
                     <i class="fas fa-times"></i>
                 </span>
             </div>
         @endif
 
         @if(session('error'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <div class="relative bg-red-100 px-4 py-3 border border-red-400 rounded text-red-700" role="alert">
                 <span class="block sm:inline">{{ session('error') }}</span>
-                <span class="absolute top-0 bottom-0 right-0 px-4 py-3 cursor-pointer" onclick="this.parentElement.style.display='none';">
+                <span class="top-0 right-0 bottom-0 absolute px-4 py-3 cursor-pointer" onclick="this.parentElement.style.display='none';">
                     <i class="fas fa-times"></i>
                 </span>
             </div>
@@ -64,11 +64,6 @@
                             <i class="mr-1 text-accent text-lg md:text-xl fa-solid fa-calendar-days"></i>
                             <span class="font-semibold text-xs md:text-sm">{{$emotionJournalEntry->date}}</span>
                         </div>
-                        <!--<div class="flex flex-wrap gap-2">
-                            <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Praca</span>
-                            <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Relacje</span>
-                            <span class="bg-accent px-2 py-1 rounded-full text-white text-xs">Zdrowie</span>
-                        </div>-->
                         <img src="/images/{{ $emotions[$emotionJournalEntry->mood_rating] }}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">
@@ -79,7 +74,7 @@
                 <div class="top-2 right-2 absolute flex gap-1">
                     <!-- Przycisk edycji poza formularzem -->
                     <a href="{{ route('emotions.journal.update', $emotionJournalEntry->id) }}" 
-                    class="place-content-center grid bg-blue-400 hover:bg-blue-500 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer">
+                    class="place-content-center grid bg-blue-500 hover:bg-blue-600 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer">
                         <i class="fa-pen-to-square fa-solid"></i>
                     </a>
     
@@ -87,7 +82,7 @@
                     <form action="{{ route('emotions.journal.delete', $emotionJournalEntry->id) }}" method="POST" class="inline">
                     @csrf
                     <button type="submit" 
-                    class="place-content-center grid bg-red-700 hover:bg-red-800 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"
+                    class="place-content-center grid bg-red-500 hover:bg-red-600 p-4 rounded-full w-4 h-4 text-white scale-95 md:scale-100 transition duration-300 cursor-pointer"
                     onclick="return confirm('Czy na pewno chcesz usunąć ten wpis?')">
                         <i class="fa-solid fa-trash-can"></i>
                     </button>

@@ -70,7 +70,7 @@
                 <div class="relative flex justify-between items-start bg-bg-tint shadow p-4 rounded-xl">
                 <div>
                     <div class="flex items-center gap-2 mb-2 text-sm">
-                        <span class="bg-accent px-2 py-1 rounded-full font-semibold text-white text-xs">Ćwiczenie: {{ $mindfulnessJournalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
+                        <span class="bg-accent px-2 py-1 rounded-full font-semibold text-white text-xs">{{ $mindfulnessJournalEntry->exercise->title ?? 'Nieznane ćwiczenie'}}</span>
                         <img src="/images/{{ $emotions[$mindfulnessJournalEntry->rating]}}" alt="Emoji" class="w-6 md:w-7 pointer-events-none" />
                     </div>
                     <p class="text-gray-700 text-sm md:text-base">

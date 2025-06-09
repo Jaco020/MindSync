@@ -86,7 +86,7 @@
                 <button 
                     type="submit" 
                     id="sendButton"
-                    class="bg-accent hover:bg-accent-strong text-white px-6 py-3 rounded-xl transition-colors flex items-center justify-center"
+                    class="bg-accent hover:bg-accent-strong text-white px-6 py-3 rounded-xl transition-colors flex items-center justify-center cursor-pointer"
                 >
                     <i class="fas fa-paper-plane"></i>
                 </button>

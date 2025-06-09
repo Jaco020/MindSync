@@ -29,16 +29,15 @@
             <h2 class="text-xl md:text-2xl">
                 <span id="timeGreeting"></span>, {{ $userName }} 👋
             </h2>
-            <!--<p class="mt-2 text-gray-500 text-sm md:text-base">Powodzenia w kontynuacji twojej 14 dniowej passy medytacji</p>-->
             <img src="/images/leaf1.svg" class="top-[-104px] left-[-100%] md:left-[-111px] z-3 absolute pointer-events-none" alt="leaf1">   
             <img src="/images/leaf2.svg" class="top-[-75px] left-[596px] z-1 absolute pointer-events-none" alt="leaf2">   
             <img src="/images/leaf3.svg" class="right-[-200%] 2xl:right-0! bottom-[-110px] z-0 absolute pointer-events-none" alt="leaf3">   
         </div>
 
-        <div class="gap-6 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-4 min-h-50">
+        <div class="gap-6 grid grid-cols-1 lg:grid-cols-2 min-h-50">
             <div class="bg-bg-tint p-6 rounded-xl text-center">
                 <p class="font-semibold text-header-gray text-lg md:text-xl">Twój średni nastrój</p>
-                <div class="mt-4 2xl:mt-10 flex flex-col items-center justify-center gap-2">
+                <div class="flex flex-col justify-center items-center gap-2 mt-4">
                     @if($avgMoodIndex)
                         <img src="/images/{{ $emotions[$avgMoodIndex] }}" alt="Emoji" class="w-10 md:w-12 pointer-events-none" />
                     @endif
@@ -47,22 +46,17 @@
             </div>
             <div class="relative bg-bg-tint p-6 rounded-xl overflow-y-hidden text-center">
                 <p class="font-semibold text-header-gray text-lg md:text-xl">Twoje wpisy</p>
-                <div class="mt-4 2xl:mt-10 flex justify-center">
+                <div class="flex justify-center mt-4 md:mt-10">
                     <span class="font-bold text-accent text-4xl md:text-5xl">{{$journalEntriesCount}}</span>
                 </div>
-                <!-- <img src="/images/chart-graphic.svg" class="bottom-[-100%] 2xl:bottom-4 left-1/2 absolute h-[50px] -translate-x-1/2" alt="Wykres nastroju"> -->
             </div>
-            <!--<div class="bg-bg-tint p-6 rounded-xl text-center">
-                <p class="font-semibold text-header-gray text-lg md:text-xl">Porada na dziś</p>
-                <p class="mt-2 text-gray-500 text-xs md:text-sm 2xl:text-base">Porada odświeżająca się raz dziennie lub przy każdym odwiedzeniu dashboard (do zdecydowania), można znaleść jakieś API. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum, voluptate? </p>
-            </div>-->
         </div>
 
         <div class="gap-6 grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4 min-h-100">
             <div class="lg:col-span-2 2xl:col-span-3 bg-bg-tint p-6 rounded-xl">
                 <p class="mb-5 font-semibold text-header-gray text-lg md:text-xl text-center">Wykres nastroju z ostatnich 30 dni</p>
                 <div>
-                    <canvas class="h-[300px] w-full" id="moodChart" data-mood='@json($moodData)'></canvas>
+                    <canvas class="w-full h-[300px]" id="moodChart" data-mood='@json($moodData)'></canvas>
                 </div>
             </div>
             <div class="gap-6 grid grid-rows-2 h-full">

@@ -26,8 +26,8 @@
             </div>
              
             @if ($errors->any())
-                <div class="bg-red-50 border border-red-200 text-red-800 rounded-lg p-4 w-full">
-                    <ul class="list-disc pl-5">
+                <div class="bg-red-50 p-4 border border-red-200 rounded-lg w-full text-red-800">
+                    <ul class="pl-5 list-disc">
                         @foreach ($errors->all() as $error)
                             <li class="text-sm">{{ $error }}</li>
                         @endforeach
@@ -40,15 +40,14 @@
                 
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="exerciseDate" class="font-medium text-gray-700">Data wykonania ćwiczenia:</label>
-                    <input type="date" value="{{ old('exerciseDate') }}" id="exerciseDate" name="exerciseDate" class="bg-bg-main px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500
-                    @error('exerciseDate') border-2 border-red-500 !text-red-600 @enderror">
+                    <input type="date" value="{{ old('exerciseDate') }}" id="exerciseDate" name="exerciseDate" class="bg-bg-main px-4 py-2 border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent !text-red-600 text-gray-500 @error('exerciseDate') @enderror">
                 </div>
 
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="moodSelect" class="font-medium text-gray-700">Jak się czujesz po ćwiczeniu:</label>
                     <div class="relative flex items-center gap-2">
-                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-700
-                        @error('moodSelect') border-2 border-red-500 !text-red-600 @enderror">
+                        <img src="/images/emotion1.png" alt="Okropnie" class="left-3 absolute w-6 h-6" id="moodSelectImage">
+                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent !text-red-600 text-gray-700 @error('moodSelect') @enderror">
                             <option value="1" {{ old('moodSelect') == '1' ? 'selected' : '' }}>Okropnie</option>
                             <option value="2" {{ old('moodSelect') == '2' ? 'selected' : '' }}>Źle</option>
                             <option value="3" {{ old('moodSelect') == '3' ? 'selected' : '' }}>Średnio</option>
@@ -60,16 +59,45 @@
 
                 <div class="flex flex-col">
                     <label for="notes" class="mb-2 font-medium text-gray-700">Przemyślenia:</label>
-                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40 resize-none text-gray-600
-                    @error('notes') border-2 border-red-500 !text-red-600 @enderror">{{ old('notes') }}</textarea>
+                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40 !text-red-600 text-gray-600 resize-none @error('notes') @enderror">{{ old('notes') }}</textarea>
                 </div>
 
                 <div class="flex flex-wrap justify-center md:justify-end gap-4">
                     <a href="/mindfulness/exercises" class="px-6 py-2 border border-accent hover:border-accent-strong rounded-2xl w-full xsm:w-auto text-accent text-center transition duration-300 hover:text-accent-strong">Powrót</a>
-                    <button class="bg-accent px-6 py-2 rounded-2xl w-full xsm:w-auto text-white text-center transition duration-300 hover:bg-accent-strong">Wykonane</button>
+                    <button class="bg-accent px-6 py-2 rounded-2xl w-full xsm:w-auto text-white text-center transition duration-300 hover:bg-accent-strong cursor-pointer">Wykonane</button>
                 </div>
             </form>
 
     </main>
+<script>
+    const moodSelectDescriptions = [
+        { text: "Okropnie", image: "/images/emotion1.png" },
+        { text: "Źle", image: "/images/emotion2.png" },
+        { text: "Średnio", image: "/images/emotion3.png" },
+        { text: "Dobrze", image: "/images/emotion4.png" },
+        { text: "Wspaniale", image: "/images/emotion5.png" },
+    ];
+
+    const moodSelect = document.getElementById('moodSelect');
+    const moodSelectImg = document.getElementById('moodSelectImage');
+
+    function updateMoodSelectDisplay(selectedText) {
+        const mood = moodSelectDescriptions.find(m => m.text === selectedText);
+        if (mood && moodSelectImg) {
+            moodSelectImg.src = mood.image;
+            moodSelectImg.alt = mood.text;
+        }
+    }
+
+    if (moodSelect && moodSelectImg) {
+        updateMoodSelectDisplay(moodSelect.options[moodSelect.selectedIndex].text);
+
+        moodSelect.addEventListener('change', (e) => {
+            const selectedOptionText = e.target.options[e.target.selectedIndex].text;
+            updateMoodSelectDisplay(selectedOptionText);
+        });
+    }
+</script>
+
 </body>
 </html>

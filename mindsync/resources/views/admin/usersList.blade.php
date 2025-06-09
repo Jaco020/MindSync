@@ -14,13 +14,13 @@
 
     <main class="flex flex-col bg-gray-50 mx-auto mt-10 p-10 rounded-2xl w-full">
         @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+            <div class="bg-green-100 mb-4 px-4 py-3 border border-green-400 rounded text-green-700">
                 {{ session('success') }}
             </div>
         @endif
 
         @if (session('error'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+            <div class="bg-red-100 mb-4 px-4 py-3 border border-red-400 rounded text-red-700">
                 {{ session('error') }}
             </div>
         @endif
@@ -78,7 +78,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="px-4 py-8 text-center text-gray-500">
+                            <td colspan="8" class="px-4 py-8 text-gray-500 text-center">
                                 Brak użytkowników w systemie
                             </td>
                         </tr>
@@ -88,7 +88,7 @@
         </div>
 
         @if($users->count() > 0)
-            <div class="mt-4 text-sm text-gray-600">
+            <div class="mt-4 text-gray-600 text-sm">
                 Łącznie użytkowników: {{ $users->count() }}
             </div>
         @endif
