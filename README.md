@@ -6,11 +6,28 @@ platforma wspierająca użytkowników w dbaniu o zdrowie psychiczne. Aplikacja b
 dostarczać narzędzia do monitorowania nastroju, praktykowania mindfulness,
 uzyskiwania wsparcia poprzez chatbota oraz analizy własnych emocji w czasie.
 
-## Notka do Zepsołu 27.04.2025
-Aby uruchomić projekt (trzeba być w folderze aplikacji --> cd mindsync):  
+## Wykorzystane technologie
+
+|Kategoria   |Technologie         | 
+|---|---|
+| Frontend |  HTML, CSS, Tailwind, JavaScript  | 
+| Backend | PHP, Laravel   | 
+| Databases | PostgreSQL |    
+| Devops/Other | GitHub, Figma, Vite |    
+
+## Uruchomienie aplikacji
+Będąc w /MindSync/mindsync/:  
+
+**Instalacja pakietów**:  
+`npm install`  
+`composer install`
+
+**Uruchomienie projektu**:  
 `composer run dev`  
 
-Jeśli coś nie działa lub zainstalowano nowe pakiety lub pakiety różnią się między branch to:  
-`npm install --> composer install --> composer run dev`
 
-<img src="./FigmaDesign/Landing Page.png" height="600">  
+## Zdjęcia gotowej aplikacji
+<img src="./screenshots/landing.jpeg">  
+<img src="./screenshots/logowanie.png" >  
+<img src="./screenshots/dashboard.png">  
+<img src="./screenshots/admin.png">  
