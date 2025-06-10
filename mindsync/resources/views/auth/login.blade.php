@@ -56,14 +56,6 @@
                 @enderror
             </div>
     
-            <div class="w-full flex justify-between items-center text-sm text-gray-600">
-                <label class="flex items-center space-x-2">
-                    <input type="checkbox" id="remember" name="remember" class="accent-teal-500" {{ old('remember') ? 'checked' : '' }}>
-                    <span>Zapamiętaj mnie</span>
-                </label>
-                <a href="/forgot-password" class="text-teal-500 hover:underline">Zapomniałeś hasła?</a>
-            </div>
-    
             <button type="submit"
                 class="w-full bg-teal-400 text-white py-3 rounded-xl hover:bg-teal-500 transition-all font-semibold cursor-pointer">
                 Zaloguj się
