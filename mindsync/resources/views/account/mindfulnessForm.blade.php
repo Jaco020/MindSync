@@ -40,14 +40,14 @@
                 
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="exerciseDate" class="font-medium text-gray-700">Data wykonania ćwiczenia:</label>
-                    <input type="date" value="{{ old('exerciseDate') }}" id="exerciseDate" name="exerciseDate" class="bg-bg-main px-4 py-2 border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent !text-red-600 text-gray-500 @error('exerciseDate') @enderror">
+                    <input type="date" value="{{ old('exerciseDate') }}" id="exerciseDate" name="exerciseDate" class="bg-bg-main px-4 py-2 border- rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-500 @error('exerciseDate') @enderror">
                 </div>
 
                 <div class="flex md:flex-row flex-col md:items-center gap-4">
                     <label for="moodSelect" class="font-medium text-gray-700">Jak się czujesz po ćwiczeniu:</label>
                     <div class="relative flex items-center gap-2">
                         <img src="/images/emotion1.png" alt="Okropnie" class="left-3 absolute w-6 h-6" id="moodSelectImage">
-                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent !text-red-600 text-gray-700 @error('moodSelect') @enderror">
+                        <select id="moodSelect" name="moodSelect" class="bg-bg-main px-4 py-2 pl-[40px] border- rounded-xl focus:outline-none focus:ring-2 focus:ring-accent text-gray-700 @error('moodSelect') @enderror">
                             <option value="1" {{ old('moodSelect') == '1' ? 'selected' : '' }}>Okropnie</option>
                             <option value="2" {{ old('moodSelect') == '2' ? 'selected' : '' }}>Źle</option>
                             <option value="3" {{ old('moodSelect') == '3' ? 'selected' : '' }}>Średnio</option>
@@ -59,7 +59,7 @@
 
                 <div class="flex flex-col">
                     <label for="notes" class="mb-2 font-medium text-gray-700">Przemyślenia:</label>
-                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 border-2 border-red-500 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40 !text-red-600 text-gray-600 resize-none @error('notes') @enderror">{{ old('notes') }}</textarea>
+                    <textarea id="notes" name="notes" placeholder="Podaj swoje przemyślenia" class="bg-bg-main p-4 border- rounded-xl focus:outline-none focus:ring-2 focus:ring-accent h-40  text-gray-600 resize-none @error('notes') @enderror">{{ old('notes') }}</textarea>
                 </div>
 
                 <div class="flex flex-wrap justify-center md:justify-end gap-4">
